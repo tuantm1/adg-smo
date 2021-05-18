@@ -1,0 +1,91 @@
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption font-dark">
+            <span class="caption-subject bold uppercase"> Danh sách đại lý</span>
+        </div>
+<!--        <div class="actions">-->
+<!--            <div class="btn-group btn-group-devided" data-toggle="buttons">-->
+<!--                <label class="btn btn-transparent dark btn-outline btn-circle btn-sm active">-->
+<!--                    <input type="radio" name="options" class="toggle" id="option1">Actions</label>-->
+<!--                <label class="btn btn-transparent dark btn-outline btn-circle btn-sm">-->
+<!--                    <input type="radio" name="options" class="toggle" id="option2">Settings</label>-->
+<!--            </div>-->
+<!--        </div>-->
+    </div>
+    <div class="portlet-body">
+        <div class="table-scrollable">
+            <table class="table table-striped table-bordered table-hover order-column dataTable no-footer"
+                   id="sample_1" role="grid" aria-describedby="sample_1_info">
+                <thead>
+                <tr role="row">
+                    <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1" style="width: 100px;">
+                        Mã đại lý
+                    </th>
+                    <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"
+                        aria-label=" Email : activate to sort column ascending">Tên đại lý
+                    </th>
+                    <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1" style="width: 100px;"
+                        aria-label=" Status : activate to sort column ascending"> Mã số thuế
+                    </th>
+                    <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1" style="width: 150px;"
+                        aria-label=" Actions : activate to sort column ascending"> Email
+                    </th>
+                    <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1" style="width: 100px;"
+                        aria-label=" Actions : activate to sort column ascending"> Số điện thoại
+                    </th>
+                    <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1" style="width: 200px;"
+                        aria-label=" Joined : activate to sort column ascending"> Địa chỉ
+                    </th>
+                </tr>
+                <tr role="row" class="filter">
+                    <td rowspan="1" colspan="1">
+                        <input type="text" class="form-control form-filter input-sm" name="KUNNR"
+                               ng-model="search.KUNNR"></td>
+                    <td rowspan="1" colspan="1">
+                        <input type="text" class="form-control form-filter input-sm" name="order_id"
+                               ng-model="search.CUSTOMER_NAME"></td>
+                    <td rowspan="1" colspan="1">
+                        <input type="text" class="form-control form-filter input-sm" name="order_id"
+                               ng-model="search.VAT_NUMBER"></td>
+                    <td rowspan="1" colspan="1">
+                        <input type="text" class="form-control form-filter input-sm" name="order_id"
+                               ng-model="search.EMAIL"></td>
+                    <td rowspan="1" colspan="1">
+                        <input type="text" class="form-control form-filter input-sm" name="order_id"
+                               ng-model="search.SDT"></td>
+                    <td rowspan="1" colspan="1">
+                        <input type="text" class="form-control form-filter input-sm" name="order_id" ng-model="search.ADDRESS"></td>
+                </tr>
+
+
+                </thead>
+                <tbody>
+                <!--                data-ng-repeat="cus in listCustomer | filter:search:strict"-->
+                <tr class="gradeX odd" role="row"
+
+                    dir-paginate="cus in listCustomer | filter:search:strict |itemsPerPage:10">
+                    <td class="sorting_1" ui-sref="Customer.detail({kunnr: cus.KUNNR})">{{cus.KUNNR}}</td>
+                    <td class="sorting_1" ui-sref="Customer.detail({kunnr: cus.KUNNR})">{{cus.CUSTOMER_NAME}}</td>
+                    <td class="sorting_1" ui-sref="Customer.detail({kunnr: cus.KUNNR})">{{cus.VAT_NUMBER}}</td>
+                    <td class="sorting_1" ui-sref="Customer.detail({kunnr: cus.KUNNR})">{{cus.EMAIL}}</td>
+                    <td class="sorting_1" ui-sref="Customer.detail({kunnr: cus.KUNNR})">{{cus.SDT}}</td>
+                    <td class="sorting_1" ui-sref="Customer.detail({kunnr: cus.KUNNR})">{{cus.ADDRESS}}</td>
+
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="row">
+            <div class="col-md-5 col-sm-5">
+            </div>
+            <dir-pagination-controls
+                    max-size="10"
+                    direction-links="true"
+                    boundary-links="true" >
+            </dir-pagination-controls>
+        </div>
+
+        <!--        </div>-->
+    </div>
+</div>
+</div>

@@ -1,0 +1,46 @@
+<div class="portlet light bordered">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="portlet light bordered">
+
+                <div class="portlet-body">
+                    <div class="table-scrollable table-scrollable-borderless">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <h3>Tên khách hàng:</h3>
+                                <h3>Số chứng minh thư:</h3>
+                                <h3>Mã số thuế:</h3>
+                                <h3>Số điện thoại:</h3>
+                                <h3>Tổng tiền:</h3>
+                            </div>
+                            <div class="col-md-6">
+                                <h3 class="bold">{{bills[0].customer.name}}</h3>
+                                <h3 class="bold">{{bills[0].customer.idcustomer}}</h3>
+                                <h3 class="bold">{{bills[0].customer.taxcode}}</h3>
+                                <h3 class="bold">{{bills[0].customer.phone}}</h3>
+                                <h3 class="bold">{{totalPrices}}</h3>
+                            </div>
+                            <div class="col-md-2" id="test">{{img}}</div>
+                        </div>
+                        <i class="icon-bar-chart font-dark hide"></i>
+                        <span class="caption-subject font-dark bold uppercase">Danh sách hóa đơn</span>
+                        <table class="table table-hover table-light">
+                            <thead style="text-align: center">
+                            <tr class="uppercase">
+                                <th style="text-align: center"> ID hóa đơn</th>
+                                <th style="text-align: center"> Số lượng sản phẩm</th>
+                            </tr>
+                            </thead>
+                            <tr data-ng-repeat="bill in bills track by $index" style="text-align: center">
+                                <td>{{bill._id}}</td>
+                                <td>{{bill.total}}</td>
+                                <td>{{totalPrices}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

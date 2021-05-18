@@ -1,0 +1,118 @@
+<div class="portlet light bordered">
+    <div class="portlet-body">
+        <ul class="nav nav-tabs">
+            <li class="active">
+                <a data-ng-model="aa=4" data-toggle="tab" aria-expanded="true"> Home </a>
+            </li>
+            <li class="">
+                <a href="#tab_1_2" data-toggle="tab" aria-expanded="false"> Profile </a>
+            </li>
+        </ul>
+    </div>
+    <div class="portlet-title">
+        <div class="caption font-dark">
+            <span class="caption-subject bold uppercase"> View detail material</span>
+        </div>
+        <div class="actions">
+            <div class="btn-group btn-group-devided" data-toggle="buttons">
+                <label class="btn btn-transparent dark btn-outline btn-circle btn-sm active">
+                    <input type="radio" name="options" class="toggle" id="option1">Actions</label>
+                <label class="btn btn-transparent dark btn-outline btn-circle btn-sm">
+                    <input type="radio" name="options" class="toggle" id="option2">Settings</label>
+            </div>
+        </div>
+    </div>
+    <div class="portlet-body">
+        <div class="table-toolbar">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="btn-group">
+                        <button id="sample_editable_1_new" class="btn sbold green" ui-sref="Order.create"> Add New
+                            <i class="fa fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div id="sample_1_wrapper" class="dataTables_wrapper no-footer">
+<!--            <div class="row">-->
+<!--                <div class="col-md-6 col-sm-6">-->
+<!--                    <div class="dataTables_length" id="sample_1_length"><label>Show <select name="sample_1_length"-->
+<!--                                                                                            aria-controls="sample_1"-->
+<!--                                                                                            class="form-control input-sm input-xsmall input-inline">-->
+<!--                        <option value="5">5</option>-->
+<!--                        <option value="15">15</option>-->
+<!--                        <option value="20">20</option>-->
+<!--                        <option value="-1">All</option>-->
+<!--                    </select></label></div>-->
+<!--                </div>-->
+<!--                <div class="col-md-6 col-sm-6">-->
+<!--                    <div id="sample_1_filter" class="dataTables_filter"><label>Search:<input type="search"-->
+<!--                                                                                             class="form-control input-sm input-small input-inline"-->
+<!--                                                                                             placeholder=""-->
+<!--                                                                                             aria-controls="sample_1"></label>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+            <div class="table-scrollable">
+                <table class="table table-striped table-bordered table-hover order-column dataTable no-footer"
+                       id="sample_1" role="grid" aria-describedby="sample_1_info">
+                    <thead>
+                    <tr role="row">
+                        <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"
+                            aria-label=" Email : activate to sort column ascending"> Material Number
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"
+                            aria-label=" Status : activate to sort column ascending"> Material description (Short text)
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"
+                            aria-label=" Joined : activate to sort column ascending"> Material description in upper case for matchcodes
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"
+                            aria-label=" Actions : activate to sort column ascending"> Active / Deactive
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="gradeX odd" role="row" data-ng-repeat="material in listMaterial2 track by $index">
+                        <td class="sorting_1">{{material.MAHH}}</td>
+                        <td class="sorting_1">{{material.TENHH}}</td>
+                        <td class="sorting_1">{{material.DONVT}}</td>
+
+                        <td>
+                            <span class="label label-sm label-success" data-ng-if="material.status==='actived'"> Actived </span>
+                            <span class="label label-sm label-danger" data-ng-if="material.status==='deactived'"> Deactived </span>
+                        </td>
+
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+<!--            <div class="row">-->
+<!--                <div class="col-md-5 col-sm-5">-->
+<!--                    <div class="dataTables_info" id="sample_1_info" role="status" aria-live="polite">Showing 21 to 25 of-->
+<!--                        25 records-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col-md-7 col-sm-7">-->
+<!--                    <div class="dataTables_paginate paging_bootstrap_full_number" id="sample_1_paginate">-->
+<!--                        <ul class="pagination" style="visibility: visible;">-->
+<!--                            <li class="prev"><a href="#" title="First"><i class="fa fa-angle-double-left"></i></a></li>-->
+<!--                            <li class="prev"><a href="#" title="Prev"><i class="fa fa-angle-left"></i></a></li>-->
+<!--                            <li class="active"><a href="#">1</a></li>-->
+<!--                            <li><a href="#">2</a></li>-->
+<!--                            <li><a href="#">3</a></li>-->
+<!--                            <li><a href="#">4</a></li>-->
+<!--                            <li><a href="#">5</a></li>-->
+<!--                            <li class="next disabled"><a href="#" title="Next"><i class="fa fa-angle-right"></i></a>-->
+<!--                            </li>-->
+<!--                            <li class="next disabled"><a href="#" title="Last"><i class="fa fa-angle-double-right"></i></a>-->
+<!--                            </li>-->
+<!--                        </ul>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+        </div>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption font-dark">
+            <span class="caption-subject bold uppercase"> View Payment Term</span>
+        </div>
+        <div class="actions">
+            <div class="btn-group btn-group-devided" data-toggle="buttons">
+                <label class="btn btn-transparent dark btn-outline btn-circle btn-sm active">
+                    <input type="radio" name="options" class="toggle" id="option1">Actions</label>
+                <label class="btn btn-transparent dark btn-outline btn-circle btn-sm">
+                    <input type="radio" name="options" class="toggle" id="option2">Settings</label>
+            </div>
+        </div>
+    </div>
+    <div class="portlet-body">
+        <div class="table-toolbar">
+        </div>
+        <div id="sample_1_wrapper" class="dataTables_wrapper no-footer">
+            <div class="table-scrollable">
+                <table class="table table-striped table-bordered table-hover order-column dataTable no-footer"
+                       id="sample_1" role="grid" aria-describedby="sample_1_info">
+                    <thead>
+                    <tr role="row">
+                        <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"
+                            aria-label=" Status : activate to sort column ascending"> Terms of payment key
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"
+                            aria-label=" Joined : activate to sort column ascending"> Description of terms of payment
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="gradeX odd" role="row" data-ng-repeat="paymentTerm in paymentTerms track by $index">
+                        <td class="sorting_1">{{paymentTerm.ZTERM}}</td>
+                        <td class="sorting_1">{{paymentTerm.VTEXT}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

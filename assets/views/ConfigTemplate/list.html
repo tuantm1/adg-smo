@@ -1,0 +1,187 @@
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption font-dark">
+            <span class="caption-subject bold uppercase"> Quản lý mẫu đơn đặt hàng</span>
+        </div>
+<!--        <div class="actions">-->
+<!--            <div class="btn-group btn-group-devided" data-toggle="buttons">-->
+<!--                <label class="btn btn-transparent dark btn-outline btn-circle btn-sm active">-->
+<!--                    <input type="radio" name="options" class="toggle" id="option1">Actions</label>-->
+<!--                <label class="btn btn-transparent dark btn-outline btn-circle btn-sm">-->
+<!--                    <input type="radio" name="options" class="toggle" id="option2">Settings</label>-->
+<!--            </div>-->
+<!--        </div>-->
+    </div>
+    <div class="portlet-body">
+        <div class="table-toolbar">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="btn-group">
+                        <button id="sample_editable_1_new" class="btn sbold green" ui-sref="ConfigTemplate.create"
+                                data-ng-if="role.indexOf('CREATE_TEMP')!==-1"> Thêm mới mẫu đơn đặt hàng
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+            <div class="table-scrollable">
+                <table class="table table-striped table-bordered table-hover order-column dataTable no-footer"
+                       id="sample_1" role="grid" aria-describedby="sample_1_info">
+                    <thead>
+                    <tr role="row">
+                        <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"
+                            aria-label=" Email : activate to sort column ascending"> Mã
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"
+                            aria-label=" Status : activate to sort column ascending"> Tên mẫu đơn đặt hàng
+                        </th>
+
+                        <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"
+                            aria-label=" Actions : activate to sort column ascending"> Ngành hàng
+                        </th>                        
+                        <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"
+                            aria-label=" Actions : activate to sort column ascending"> Hành động
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="gradeX odd" role="row" data-ng-repeat="config in listConfigTem track by $index" >
+                        <td class="sorting_1" ui-sref="ConfigTemplate.edit({temId: config.ID_TEMPLATE})">{{config.ID_TEMPLATE}}</td>
+                        <td class="sorting_1" ui-sref="ConfigTemplate.edit({temId: config.ID_TEMPLATE})">{{config.NAME}}</td>
+                        <td class="sorting_1" ui-sref="ConfigTemplate.edit({temId: config.ID_TEMPLATE})">{{config.DIVISION_NAME}}</td>                        
+                        <td>
+                                <button ui-sref="ConfigTemplate.edit({temId: config.ID_TEMPLATE})"
+                                        class="btn btn-xs btn-success" type="button"
+                                        title="Detail" data-ng-if="role.indexOf('UPDATE_TEMP')!==-1"><i class="fa fa-pencil"></i></button>
+                                <button class="btn btn-xs btn-danger"
+                                        type="button"
+                                        title="Delete" data-ng-click="del(config.ID_TEMPLATE,config.NAME)"
+                                        data-ng-if="role.indexOf('DELETE_TEMP')!==-1"><i class="fa fa-times"></i></button>
+                                <button
+                                        class="btn btn-xs btn-circle-right btn-warning"
+                                        type="button"
+                                        title="Assign" data-ng-click="assignTemp(config.ID_TEMPLATE)"
+                                        data-toggle="modal" data-target="#myModal2" data-ng-if="role.indexOf('ASSIGN_TEMP')!==-1"><i class="fa fa-arrow-circle-right"></i></button>
+                            
+                        </td>
+
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="myModal2" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- dialog body -->
+            <div class="modal-body">
+                <div class="portlet light bordered">
+                    <div class="portlet-title">
+                        <div class="caption font-dark">
+                            <span class="caption-subject bold uppercase"> Danh sách tài khoản</span>
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <div id="sample_1_wrapper2" class="dataTables_wrapper no-footer">
+                            <div class="row">
+                                <div class="table-scrollable">
+                                    <table class="table table-striped table-bordered table-hover order-column dataTable no-footer"
+                                           id="sample_124" role="grid" aria-describedby="sample_1_info">
+                                        <thead>
+                                        <tr role="row">
+                                            <th class="sorting" tabindex="0" aria-controls="sample_1"
+                                                rowspan="1"
+                                                colspan="1"
+                                                aria-label=" Actions : activate to sort column ascending"> Chọn
+                                            </th>
+                                            <th class="sorting" tabindex="0" aria-controls="sample_1"
+                                                rowspan="1"
+                                                colspan="1"
+                                                aria-label=" Email : activate to sort column ascending"> Mã tài
+                                                khoản
+                                            </th>
+                                            <th class="sorting" tabindex="0" aria-controls="sample_1"
+                                                rowspan="1"
+                                                colspan="1"
+                                                aria-label=" Status : activate to sort column ascending"> Tên
+                                                tài khoản
+                                            </th>
+                                            <th class="sorting" tabindex="0" aria-controls="sample_1"
+                                                rowspan="1"
+                                                colspan="1"
+                                                aria-label=" Joined : activate to sort column ascending"> Loại
+                                                tài khoản
+                                            </th>
+                                            <th class="sorting" tabindex="0" aria-controls="sample_1"
+                                                rowspan="1"
+                                                colspan="1"
+                                                aria-label=" Joined : activate to sort column ascending"> Mô tả
+                                            </th>
+
+
+                                        </tr>
+                                        <tr role="row" class="filter">
+                                            <td rowspan="1" colspan="1">
+                                                <input type="text" class="form-control form-filter input-sm"
+                                                       name="KUNNR"></td>
+                                            <td rowspan="1" colspan="1">
+                                                <input type="text" class="form-control form-filter input-sm"
+                                                       name="order_id"
+                                                       ng-model="search2.ID_USER"></td>
+                                            <td rowspan="1" colspan="1">
+                                                <input type="text" class="form-control form-filter input-sm"
+                                                       name="order_id" ng-model="search2.USERNAME"></td>
+                                            <td rowspan="1" colspan="1">
+                                                <input type="text" class="form-control form-filter input-sm"
+                                                       name="order_id" ng-model="search2.US_TYPE"></td>
+                                            <td class="sorting" tabindex="0" aria-controls="sample_1"
+                                                rowspan="1" colspan="1">
+                                                <input type="text" class="form-control form-filter input-sm"
+                                                       name="order_id" ng-model="search2.DESCRIPTION"></td>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr class="gradeX odd" role="row"
+                                            dir-paginate="user in userChild | filter:search2:strict |itemsPerPage:10"
+                                            pagination-id='user2'>
+                                            <td><label class="mt-checkbox mt-checkbox-outline">
+                                                <input type="checkbox" data-ng-model="user.choose">
+                                                <span></span>
+                                            </label></td>
+                                            <td class="sorting_1">{{user.ID_USER}}</td>
+                                            <td class="sorting_1">{{user.USERNAME}}</td>
+                                            <td class="sorting_1">{{user.des_us_type}}</td>
+                                            <td class="sorting_1">{{user.DESCRIPTION}}</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-5 col-sm-5">
+                                    </div>
+                                    <dir-pagination-controls
+                                            max-size="10" pagination-id='user2'
+                                            direction-links="true"
+                                            boundary-links="true">
+                                    </dir-pagination-controls>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- dialog buttons -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" data-ng-click="assign(config.ID_TEMPLATE)">
+                    OK
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

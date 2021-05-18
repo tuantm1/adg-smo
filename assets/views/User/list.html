@@ -1,0 +1,136 @@
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption font-dark">
+            <span class="caption-subject bold uppercase"> Danh sách tài khoản</span>
+        </div>
+    </div>
+    <div class="portlet-body">
+        <div class="table-toolbar">
+            <div class="row">
+                <div class="col-md-6">
+
+                </div>
+
+            </div>
+        </div>
+        <div class="table-scrollable">
+            <table class="table table-striped table-bordered table-hover order-column dataTable no-footer"
+                   id="sample_1" role="grid" aria-describedby="sample_1_info">
+                <thead>
+                <tr role="row">
+                    <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"
+                        aria-label=" Email : activate to sort column ascending"> Mã tài khoản
+                    </th>
+                    <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"
+                        aria-label=" Status : activate to sort column ascending"> Tài khoản
+                    </th>
+                    <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"
+                        aria-label=" Actions : activate to sort column ascending"> Tên người dùng
+                    </th>
+                    <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"
+                        aria-label=" Actions : activate to sort column ascending"> Loại tài khoản
+                    </th>
+                    <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"
+                        aria-label=" Actions : activate to sort column ascending"> Tài khoản bảo lãnh
+                    </th>
+                    <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"
+                        aria-label=" Actions : activate to sort column ascending"> Tài khoản quản lý
+                    </th>
+
+                    <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"
+                        aria-label=" Actions : activate to sort column ascending"> Hành động
+                    </th>
+                </tr>
+                <tr role="row" class="filter">
+                    <td rowspan="1" colspan="1">
+                        <input type="text" class="form-control form-filter input-sm" name="KUNNR"
+                               ng-model="search.ID_USER"></td>
+                    <td rowspan="1" colspan="1">
+                        <input type="text" class="form-control form-filter input-sm" name="order_id"
+                               ng-model="search.USERNAME"></td>
+                    <td rowspan="1" colspan="1">
+                        <input type="text" class="form-control form-filter input-sm" name="order_id"
+                               ng-model="search.DESCRIPTION"></td>
+                    <td rowspan="1" colspan="1">
+                        <input type="text" class="form-control form-filter input-sm" name="order_id"
+                               ng-model="search.US_TYPE"></td>
+                    <td rowspan="1" colspan="1">
+                        <input type="text" class="form-control form-filter input-sm" name="order_id"
+                               ng-model="search.PARENT_ID"></td>
+                    <td rowspan="1" colspan="1">
+                        <input type="text" class="form-control form-filter input-sm" name="order_id2"
+                               ng-model="search.PARENT_ID_2"></td>
+
+                    <td rowspan="1" colspan="1">
+                        <input type="text" class="form-control form-filter input-sm" name="order_id"></td>
+                </tr>
+                </thead>
+                <tbody>
+                <!--                    <tr class="gradeX odd" role="row" data-ng-repeat="config in listConfigTem track by $index" ui-sref="ConfigTemplate.edit({temId: config.ID})">-->
+                <tr class="gradeX odd" role="row" dir-paginate="user in users | filter:search:strict |itemsPerPage:10">
+                    <td class="sorting_1" ui-sref="User.detail({userID: user.ID_USER})">{{user.ID_USER}}</td>
+                    <td class="sorting_1" ui-sref="User.detail({userID: user.ID_USER})">{{user.USERNAME}}</td>
+                    <td class="sorting_1" ui-sref="User.detail({userID: user.ID_USER})">{{user.DESCRIPTION}}</td>
+                    <td class="sorting_1" ui-sref="User.detail({userID: user.ID_USER})">
+                        <div data-ng-if="user.US_TYPE === 'S'">Tài khoản Thường</div>
+                        <div data-ng-if="user.US_TYPE === 'U'">Tài khoản Kinh doanh</div>
+                        <div data-ng-if="user.US_TYPE === 'K'">Tài khoản QLĐH</div>
+
+                    </td>
+                    <td class="sorting_1" ui-sref="User.detail({userID: user.ID_USER})">{{user.NAME_PARENT}}</td>
+                    <td class="sorting_1" ui-sref="User.detail({userID: user.ID_USER})">{{user.NAME_PARENT_2}}</td>
+
+                    <td>
+                        <div class="btn-group" data-ng-repeat="action in action track by $index">
+                            <button ui-sref="User.edit({userID: user.ID_USER, action:'edit'})"
+                                    class="btn btn-xs btn-success" type="button"
+                                    title="Detail" data-ng-if="action.FUNCTIONMODULE === 'UPDATE_USER'"><i
+                                    class="fa fa-pencil"></i></button>
+                            <button class="btn btn-xs btn-danger"
+                                    type="button" style="float: right"
+                                    title="Delete" data-ng-click="del(user.ID_USER, user.USERNAME)"
+                                    data-ng-if="action.FUNCTIONMODULE === 'UPDATE_USER'"><i class="fa fa-times"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="row">
+            <div class="col-md-5 col-sm-5">
+            </div>
+            <dir-pagination-controls
+                    max-size="10"
+                    direction-links="true"
+                    boundary-links="true">
+            </dir-pagination-controls>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal" data-ng-click="del(USER.ID_USER)">
+                    DELETE
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

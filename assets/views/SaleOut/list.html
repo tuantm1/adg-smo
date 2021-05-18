@@ -1,0 +1,138 @@
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        Chức năng đang được cập nhật...
+    </div>
+</div>
+<!--<div class="content content-narrow">-->
+<!--    <form class="js-validation-material push-10-t" data-ng-submit="submitDuAnForm()" method="post">-->
+<!--        <div class="portlet light bordered">-->
+<!--            <div class="portlet-title">-->
+<!--                <div class="caption font-dark "><span-->
+<!--                        class="caption-subject bold uppercase"> Thông tin Xuất hàng</span>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="portlet-body">-->
+<!--                <div class="row">-->
+<!--                    <div class="form-group col-md-6">-->
+<!--                        <div class=" form-horizontal">-->
+<!--                            <label class="col-md-3 control-label" style="text-align: left">Ship To</label>-->
+<!--                            <div class="col-md-8">-->
+<!--                                <select class="form-control select2me select2-hidden-accessible" name="options2"-->
+<!--                                        tabindex="-1" aria-hidden="true" aria-required="true" aria-invalid="false"-->
+<!--                                        aria-describedby="options2-error"-->
+<!--                                        data-ng-model="saleout.id_shipto"-->
+<!--                                        data-ng-options="shipTOs.ID_SHIPTO as shipTOs.NAME for shipTOs in shipTOs">-->
+<!--                                </select>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="form-group col-md-6">-->
+<!--                        <div class="form-horizontal">-->
+<!--                            <label class="control-label col-md-3" style="text-align: left">Ngày-->
+<!--                                <span class="required" aria-required="true"></span>-->
+<!--                            </label>-->
+<!--                            <div class="col-md-8">-->
+<!--                                <div class="col-md-8">-->
+<!--                                    <input id="input"  style="width: 100%" data-ng-model="theDate"/>-->
+<!--                                    <script>-->
+<!--                                        $('#input').datepicker({defaultDate: '01-01-1985'});-->
+<!--                                    </script>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="clearfix"></div>-->
+<!--        </div>-->
+<!--    </form>-->
+<!--</div>-->
+
+<!--<div class="portlet light bordered">-->
+<!--    <div class="portlet-title">-->
+<!--        <div class="caption font-dark">-->
+<!--            <span class="caption-subject bold uppercase"> Chi tiết</span>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="portlet-body">-->
+<!--        <div class="table-toolbar">-->
+<!--            <div class="row">-->
+<!--                <div class="col-md-6">-->
+<!--                    <div class="btn-group">-->
+<!--                        <button id="sample_editable_1_new" class="btn sbold green" data-ng-click="add()"> Thêm-->
+<!--                            <i class="fa fa-plus"></i>-->
+<!--                        </button>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="table-scrollable">-->
+<!--            <table class="table table-striped table-bordered table-hover order-column dataTable no-footer"-->
+<!--                   id="sample_1" role="grid" aria-describedby="sample_1_info">-->
+<!--                <thead>-->
+<!--                <tr role="row">-->
+<!--                    <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"-->
+<!--                        aria-label=" Status : activate to sort column ascending"> STT-->
+<!--                    </th>-->
+
+<!--                    <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"-->
+<!--                        aria-label=" Actions : activate to sort column ascending"> Mặt hàng-->
+<!--                    </th>-->
+<!--                    <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"-->
+<!--                        aria-label=" Actions : activate to sort column ascending"> Số lượng-->
+<!--                    </th>-->
+<!--                    <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"-->
+<!--                        aria-label=" Actions : activate to sort column ascending"> Đơn giá (VND)-->
+<!--                    </th>-->
+<!--                    <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"-->
+<!--                        aria-label=" Actions : activate to sort column ascending"> Thành tiền-->
+<!--                    </th>-->
+<!--                </tr>-->
+<!--                </thead>-->
+<!--                <tbody>-->
+<!--                <tr class="gradeX odd" role="row" data-ng-repeat="item in items track by $index">-->
+<!--                    <td class="sorting_1">{{$index + 1}}</td>-->
+<!--                    <td class="sorting_1">-->
+<!--                        <select class="form-control select2me select2-hidden-accessible" name="options2"-->
+<!--                                tabindex="-1" aria-hidden="true" aria-required="true" aria-invalid="false"-->
+<!--                                aria-describedby="options2-error"-->
+<!--                                data-ng-model="item.id_mara"-->
+<!--                                ng-change="loadPrice($index, item.id_mara)"-->
+<!--                                data-ng-options="prices.ID_ITEM as prices.NAME_ITEM for prices in prices">-->
+<!--                        </select>-->
+<!--                    </td>-->
+<!--                    <td class="sorting_1">-->
+<!--                        <input type="text" name="tem_name"-->
+<!--                               data-ng-model="item.quantity"-->
+<!--                               id="tem_name"-->
+<!--                               ng-change="amount($index, item.quantity, item.price)"-->
+<!--                               class="form-control">-->
+<!--                    </td>-->
+<!--                    <td class="sorting_1">{{item.price}}</td>-->
+<!--                    <td class="sorting_1">{{item.amount}}</td>-->
+<!--                </tr>-->
+<!--                </tbody>-->
+<!--            </table>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--</div>-->
+
+<!--<div class="portlet light bordered">-->
+<!--    <div class="portlet-body">-->
+
+<!--        <div class="row">-->
+<!--            <div class="form-group col-md-6">-->
+<!--                <div class="btn-group">-->
+<!--                    <button id="sample_editable_3_new" class="btn sbold green"-->
+<!--                            data-ng-click="save()"> Cập nhật-->
+<!--                    </button>-->
+<!--                    <button id="sample_editable_4_new" class="btn sbold red"-->
+<!--                            style="margin-left: 10px;"> Hủy-->
+<!--                    </button>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->

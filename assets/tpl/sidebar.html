@@ -1,0 +1,79 @@
+<ul class="page-sidebar navbar-collapse collapse" style="position: fixed;">
+    <ul class="page-sidebar-menu" data-keep-expanded="false" data-auto-scroll="true"
+        data-slide-speed="200" ng-class="{'page-sidebar-menu-closed': settings.layout.pageSidebarClosed}">
+        <li class="start nav-item active open">
+            <a ui-sref="dashboard">
+                <i class="icon-home"></i>
+                <span class="title"><strong>TRANG CHỦ</strong></span>
+            </a>
+        </li>
+    </ul>
+    <ul class="page-sidebar-menu" data-keep-expanded="false" data-auto-scroll="true"
+
+        data-slide-speed="200" ng-class="{'page-sidebar-menu-closed': settings.layout.pageSidebarClosed}">
+        <li class="nav-item open">
+            <a href="javascript:;">
+                <i class="icon-user"></i>
+                <span class="title"><strong>QUẢN LÝ CHUNG</strong></span>
+                <span class="arrow "></span>
+            </a>
+            <ul class="sub-menu">
+<!--                <li><a ui-sref="Inbox.list">-->
+<!--                    <strong>Thông báo</strong>-->
+<!--                </a></li>-->
+                <li ng-repeat="menu in menu_group"><a data-ng-if="menu.ZZSTATUS==='1'" ui-sref="{{menu.NAME}}.list">
+                    <strong>{{menu.DESCRIPTION}}</strong>
+                </a></li>
+            </ul>
+
+        </li>
+
+        <li class="nav-item open">
+            <a href="javascript:;">
+                <i class="icon-book-open"></i>
+                <span class="title"><strong>QUẢN LÝ ĐƠN HÀNG</strong></span>
+                <span class="arrow "></span>
+            </a>
+            <ul class="sub-menu">
+                <li ng-repeat="menu in menu_group"><a data-ng-if="menu.ZZSTATUS==='2'" ui-sref="{{menu.NAME}}.list">
+                    <strong>{{menu.DESCRIPTION}}</strong>
+                </a></li>
+                <li><a ui-sref="Order.copy_list">
+                    <strong>Sao chép đơn hàng</strong>
+                </a></li>
+                <li><a ui-sref="Guarantee.list">
+                    <strong>Yêu cầu bảo hành</strong>
+                </a></li>
+                <li><a ui-sref="Order.delivery">
+                    <strong>Lịch giao hàng</strong>
+                </a></li>
+
+            </ul>
+        </li>
+        <!-- <li class="nav-item open">
+            <a href="javascript:;">
+                <i class="icon-bag"></i>
+                <span class="title"><strong>TÍCH HỢP VỚI SAP</strong></span>
+                <span class="arrow "></span>
+            </a>
+            <ul class="sub-menu">
+                <li ng-repeat="menu in menu_group"><a data-ng-if="menu.ZZSTATUS==='3'" ui-sref="{{menu.NAME}}.list">
+                    <strong>{{menu.DESCRIPTION}}</strong>
+                </a></li>
+            </ul>
+        </li> -->
+        <li class="nav-item open">
+            <a href="javascript:;">
+                <i class="icon-bag"></i>
+                <span class="title"><strong>HỆ THỐNG BÁO CÁO</strong></span>
+                <span class="arrow "></span>
+            </a>
+            <ul class="sub-menu">
+                <li><a ui-sref="DSDH.list">
+                    <strong>Danh sách đơn hàng</strong>
+                </a></li>
+            </ul>
+        </li>
+
+    </ul>
+</ul>

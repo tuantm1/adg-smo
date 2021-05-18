@@ -1,0 +1,302 @@
+<div class="portlet light bordered ng-scope">
+    <label class="caption-subject font-dark bold uppercase">Thông tin chung</label>
+    <div class="row">
+        <div class="col-sm-4 col-xs-12">
+            <a class="dashboard-stat dashboard-stat-v2 green" href="#">
+                <div class="visual">
+                    <i class="fa fa-comments"></i>
+                </div>
+                <div class="details">
+                    <div class="number">
+                        <!--                        <span data-counter="counterup" data-value="1349">{{listOrder.length  | number:0}}</span>-->
+                        <span data-counter="counterup" data-value="1349">{{orderNumber  ?  orderNumber : 0}}</span>
+                    </div>
+                    <div class="desc" style="margin-top: 15px"> Tổng số đơn hàng</div>
+                </div>
+            </a>
+        </div>
+        <div class="col-sm-4 col-xs-12">
+            <a class="dashboard-stat dashboard-stat-v2 yellow" href="#">
+                <div class="visual">
+                    <i class="fa fa-bar-chart-o"></i>
+                </div>
+                <div class="details">
+                    <div class="number">
+                        <span data-counter="counterup" data-value="12,5">{{pendingNumer ? pendingNumer : 0}}</span>
+                    </div>
+                    <div class="desc" style="margin-top: 15px"> Tổng số đơn hàng đang phê duyệt</div>
+                </div>
+            </a>
+        </div>
+        <div class="col-sm-4 col-xs-12">
+            <a class="dashboard-stat dashboard-stat-v2 green" href="#">
+                <div class="visual">
+                    <i class="fa fa-shopping-cart"></i>
+                </div>
+                <div class="details">
+                    <div class="number">
+                        <span data-counter="counterup">{{successNumber ? successNumber : 0}}</span>
+                    </div>
+                    <div class="desc" style="margin-top: 15px"> Tổng số đơn hàng thành công</div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+<!--<form>-->
+<!--    <textarea id="chat" rows="10" cols="10"></textarea><br>-->
+<!--    Username: <input type="text" id="username" data-ng-model="username"><br>-->
+<!--    To: <input type="text" id="to"><br>-->
+<!--    Message: <input type="text" id="msg" data-ng-model="message"><br>-->
+<!--    <button data-ng-click="sendPM()">Send</button><br>-->
+<!--    <button data-ng-click="connectIO()">Connect</button>-->
+<!--</form>-->
+
+<!--<div class="portlet light bordered">-->
+<!--    <div class="portlet-title">-->
+<!--        <div class="row">-->
+<!--            <div class="caption col-md-3" style="float: left">-->
+<!--                <i class="icon-bar-chart font-dark hide"></i>-->
+<!--                <span class="caption-subject font-dark bold uppercase">BIỂU ĐỒ ĐƠN HÀNG </span>-->
+<!--            </div>-->
+<!--            <div class="col-md-2" id="reportrange" style="background: #fff; cursor: pointer; padding: 10px 30px; border: 1px solid #ccc; margin-right: 15px">-->
+<!--                <i class="fa fa-calendar"></i>&nbsp;-->
+<!--                <span></span> <i class="fa fa-caret-down"></i>-->
+<!--            </div>-->
+
+<!--            <div class="actions col-md-2">-->
+<!--                <button class="btn red btn-outline btn-circle btn-sm" data-ng-click="view(start,end)">Xem thống kê</button>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="portlet-body">-->
+<!--        <div id="site_statistics_loading" style="display: none;">-->
+<!--            &lt;!&ndash;            <img src="../assets/global/img/loading.gif" alt="loading">&ndash;&gt;-->
+<!--        </div>-->
+<!--        <div id="site_statistics_content" class="display-none" style="display: block;">-->
+<!--            <div id="site_statistics" class="chart" style="padding: 0px; position: relative;">-->
+<!--                <canvas class="flot-base" width="758" height="300"-->
+<!--                        style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 758px; height: 300px;"></canvas>-->
+<!--                <div class="flot-text"-->
+<!--                     style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; font-size: smaller; color: rgb(84, 84, 84);">-->
+<!--                    <div class="flot-x-axis flot-x1-axis xAxis x1Axis"-->
+<!--                         style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;"></div>-->
+<!--                    <div class="flot-y-axis flot-y1-axis yAxis y1Axis"-->
+<!--                         style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;"></div>-->
+<!--                </div>-->
+<!--                <canvas class="flot-overlay" width="758" height="300"-->
+<!--                        style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 758px; height: 300px;"></canvas>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--<div class="portlet light bordered">-->
+<!--    <div class="portlet-title">-->
+<!--        <div class="caption font-dark">-->
+<!--            <i class="icon-settings font-dark"></i>-->
+<!--            <span class="caption-subject bold uppercase"> Danh sách đơn đặt hàng</span>-->
+<!--        </div>-->
+
+<!--    </div>-->
+<!--    <div class="portlet-body">-->
+<!--        <div class="table-toolbar">-->
+<!--            <div class="row">-->
+<!--                <div class="col-md-6">-->
+<!--                </div>-->
+
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div id="sample_1_wrapper" class="dataTables_wrapper no-footer">-->
+<!--            <div class="table-scrollable">-->
+<!--                <table class="table table-striped table-bordered table-hover order-column dataTable no-footer"-->
+<!--                       id="sample_1" role="grid" aria-describedby="sample_1_info">-->
+<!--                    <thead>-->
+<!--                    <tr role="row">-->
+<!--                        <th tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1" style="text-align: center; vertical-align: middle; width: 100px;">-->
+<!--                            Số đơn hàng-->
+<!--                        </th>-->
+<!--                        <th tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1" style="text-align: center; vertical-align: middle; width: 100px;"-->
+<!--                            aria-label=" Status : activate to sort column ascending"> Ngày<br/>giao hàng<br/>dự kiến-->
+<!--                        </th>-->
+<!--                        <th tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1" style="text-align: center; vertical-align: middle; width: 100px;"-->
+<!--                            aria-label=" Joined : activate to sort column ascending"> Ngày<br/>giao hàng<br/>thực tế-->
+<!--                        </th>-->
+<!--                        <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1" style="text-align: center; vertical-align: middle;"-->
+<!--                            aria-label=" Status : activate to sort column ascending"> Đại lý-->
+<!--                        </th>-->
+<!--                        <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1" style="text-align: center; vertical-align: middle; "-->
+<!--                            aria-label=" Status : activate to sort column ascending"> Sản phẩm-->
+<!--                        </th>-->
+
+<!--                        &lt;!&ndash; <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"-->
+<!--                            aria-label=" Joined : activate to sort column ascending"> Người tạo-->
+<!--                        </th> &ndash;&gt;-->
+
+<!--                        &lt;!&ndash;                        <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            aria-label=" Joined : activate to sort column ascending" style="width: 120px;"> Ghi chú&ndash;&gt;-->
+<!--                        &lt;!&ndash;                        </th>&ndash;&gt;-->
+<!--                        <th  tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1" style="text-align: center; vertical-align: middle; width: 70px;"-->
+<!--                             aria-label=" Joined : activate to sort column ascending" style="width: 120px;"> Trạng thái-->
+<!--                        </th>-->
+<!--                        <th tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1" style="text-align: center; vertical-align: middle; width: 70px;"-->
+<!--                            aria-label=" Actions : activate to sort column ascending" style="width: 150px;"> Thao tác-->
+<!--                        </th>-->
+<!--                        <th tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1" style="text-align: center; vertical-align: middle; width: 70px;"-->
+<!--                            aria-label=" Actions : activate to sort column ascending" style="width: 150px;"> Thông báo-->
+<!--                        </th>-->
+<!--                    </tr>-->
+<!--                    <tr role="row" class="filter">-->
+<!--                        <td rowspan="1" colspan="1">-->
+<!--                            <input type="text" class="form-control form-filter input-sm" name="KUNNR"-->
+<!--                                   ng-model="search.ID_ORDER"></td>-->
+<!--                        &lt;!&ndash;                        <td rowspan="1" colspan="1"></td>&ndash;&gt;-->
+<!--                        &lt;!&ndash;                        <td rowspan="1" colspan="1">&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            <input type="text" class="form-control form-filter input-sm" name="order_id"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                                   ng-model="search.NAME_SHIPTO"></td>&ndash;&gt;-->
+<!--                        <td rowspan="1" colspan="1">-->
+<!--                            <input type="text" class="form-control form-filter input-sm" name="order_id"-->
+<!--                                   ng-model="search.Z_DATE"></td>-->
+<!--                        <td rowspan="1" colspan="1">-->
+<!--                            <input type="text" class="form-control form-filter input-sm" name="order_id"-->
+<!--                                   ng-model="search.NAME_APPROVE"></td>-->
+<!--                        &lt;!&ndash;                        <td rowspan="1" colspan="1">&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            <input type="text" class="form-control form-filter input-sm" name="order_id"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                                   ng-model="search.NOTE"></td>&ndash;&gt;-->
+<!--                        <td rowspan="1" colspan="1">-->
+<!--                            <input type="text" class="form-control form-filter input-sm" name="order_id"-->
+<!--                                   ng-model="search.NAME_SHIPTO"></td>-->
+<!--                        <td rowspan="1" colspan="1">-->
+<!--                            <input type="text" class="form-control form-filter input-sm" name="order_id"-->
+<!--                                   ng-model="search.itemText"></td>-->
+<!--                        &lt;!&ndash; <td rowspan="1" colspan="1">-->
+<!--                            <input type="text" class="form-control form-filter input-sm" name="order_id"-->
+<!--                                   ng-model="search.CREATE_BY_NAME"></td> &ndash;&gt;-->
+<!--                        <td rowspan="1" colspan="1">-->
+<!--                            <input type="text" class="form-control form-filter input-sm" name="order_id"-->
+<!--                                   ng-model="search.NAME_APPROVE"></td>-->
+<!--                        &lt;!&ndash;                        <td rowspan="1" colspan="1">&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            <input type="text" class="form-control form-filter input-sm" name="order_id"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                                   ng-model="search.NOTE"></td>&ndash;&gt;-->
+
+<!--                        <td rowspan="1" colspan="1">-->
+<!--                        </td>-->
+<!--                        <td rowspan="1" colspan="1">-->
+<!--                        </td>-->
+<!--                        <td rowspan="1" colspan="1">-->
+<!--                        </td>-->
+
+<!--                    </tr>-->
+<!--                    </thead>-->
+<!--                    <tbody>-->
+<!--                    <tr class="gradeX odd" role="row"-->
+<!--                        dir-paginate="list in listOrder | filter:search:strict |itemsPerPage:10">-->
+<!--                        <td class="sorting_1" ui-sref="Order.detail({idOrder: list.ID_ORDER})">{{list.ID_ORDER}}</td>-->
+<!--                        <td class="sorting_1" ui-sref="Order.detail({idOrder: list.ID_ORDER})">{{list.Z_DATE}}</td>-->
+<!--                        <td class="sorting_1" ui-sref="Order.detail({idOrder: list.ID_ORDER})">-->
+<!--                            &lt;!&ndash;                            {{list.NAME_APPROVE}}&ndash;&gt;-->
+<!--                        </td>-->
+<!--                        <td class="sorting_1" ui-sref="Order.detail({idOrder: list.ID_ORDER})">{{list.NAME_SHIPTO}}</td>-->
+
+<!--                        <td class="sorting_1" ui-sref="Order.detail({idOrder: list.ID_ORDER})"-->
+<!--                            data-ng-model="list.itemText">-->
+<!--                            <div data-ng-repeat="item in list.ITEMS track by $index">-->
+<!--                                <div data-ng-if="item.Z_RETURN==='2'">{{item.NAME}}: {{item.QUANTITY}}-->
+<!--                                    {{item.SALE_UNIT}}-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </td>-->
+
+<!--                        <td class="sorting_1">-->
+<!--                            <div data-ng-if="list.STATUS === 'P'||list.STATUS==='L'"><span-->
+<!--                                    class="label label-sm label-info"> Đã lưu </span></div>-->
+<!--                            <div data-ng-if="list.STATUS === 'R'"><span-->
+<!--                                    class="label label-sm label-danger"> Đã hủy </span>-->
+<!--                            </div>-->
+<!--                            <div data-ng-if="list.STATUS === 'F'"><span class="label label-sm label-danger"> Không thành công </span>-->
+<!--                            </div>-->
+
+<!--                            <div data-ng-if="list.STATUS === 'C'"><span class="label label-sm label-warning"> Vượt hạn mức tín dụng </span>-->
+<!--                            </div>-->
+<!--                            <div data-ng-if="(list.STATUS === 'B'&&list.STATUS_BL === '')"><span class="label label-sm label-warning"> Chờ bảo lãnh </span>-->
+<!--                            </div>-->
+<!--                            <div data-ng-if="list.STATUS === 'B'&&list.STATUS_BL === 'X'">-->
+<!--                                &lt;!&ndash;                                <span class="label label-sm label-warning"> Đang bảo lãnh </span>&ndash;&gt;-->
+<!--                                <span class="label label-sm label-warning"> Chờ bảo lãnh </span>-->
+<!--                            </div>-->
+<!--                            <div data-ng-if="list.STATUS === 'S'"><span-->
+<!--                                    class="label label-sm label-success">Đặt thành công </span></div>-->
+<!--                            <div data-ng-if="list.STATUS === 'A'"><span-->
+<!--                                    class="label label-sm label-success">Đã duyệt </span></div>-->
+<!--                        </td>-->
+
+<!--                        <td class="sorting_1">-->
+<!--                            <div class="btn-group"-->
+<!--                                 data-ng-if=" (list.ID_APPROVE === userData.id_user || list.ID_APPROVE === userData.id_peer ) && (list.STATUS === 'P' || list.STATUS === 'F' || list.STATUS === 'L')">-->
+<!--                                <a data-ng-click="approve(list.ID_ORDER)"-->
+<!--                                   class="btn btn-xs btn-success" type="button"-->
+<!--                                   title="Gửi đơn hàng">Gửi đơn hàng</a>-->
+
+<!--                                <a data-ng-click="rejectReason(list.ID_ORDER)"-->
+<!--                                   class="btn btn-xs btn-danger" type="button"-->
+<!--                                   title="Hủy" data-toggle="modal" data-target="#myModal2" style="float: left">Hủy</a>-->
+<!--                            </div>-->
+<!--                            <div class="btn-group"-->
+<!--                                 data-ng-if=" (list.ID_APPROVE === userData.id_user || list.ID_APPROVE === userData.id_peer ) && (list.STATUS === 'C')">-->
+<!--                                <a data-ng-click="approve(list.ID_ORDER)"-->
+<!--                                   class="btn btn-xs btn-success" type="button"-->
+<!--                                   title="Yêu cầu bảo lãnh">Yêu cầu bảo lãnh</a>-->
+
+<!--                                <a data-ng-click="rejectReason(list.ID_ORDER)"-->
+<!--                                   class="btn btn-xs btn-danger" type="button"-->
+<!--                                   title="Hủy" data-toggle="modal" data-target="#myModal2" style="float: left">Hủy</a>-->
+
+<!--                            </div>-->
+
+
+<!--                        </td>-->
+<!--                        <td class="sorting_1">-->
+<!--                            <a title="Comment">-->
+<!--                                <i class="fa fa-comments-o" style="font-size:36px"></i>-->
+<!--                                <span class="badge badge-danger">{{list.check ? list.check : 0}} </span>-->
+<!--                            </a>-->
+<!--                        </td>-->
+<!--                    </tr>-->
+<!--                    </tbody>-->
+<!--                </table>-->
+<!--            </div>-->
+<!--            <div class="row">-->
+<!--                <div class="col-md-5 col-sm-5">-->
+<!--                </div>-->
+<!--                <dir-pagination-controls-->
+<!--                        max-size="10"-->
+<!--                        direction-links="true"-->
+<!--                        boundary-links="true">-->
+<!--                </dir-pagination-controls>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--<div id="myModal2" class="modal fade">-->
+<!--    <div class="modal-dialog">-->
+<!--        <div class="modal-content">-->
+<!--            &lt;!&ndash; dialog body &ndash;&gt;-->
+<!--            <div class="modal-body">-->
+<!--                <h4><span class="caption-subject bold uppercase">Lý do từ chối đơn hàng</span></h4>-->
+<!--                <div data-ng-repeat="reason in listRejectReason track by $index">-->
+<!--                    <a data-ng-click="reject(reason.text)" role="button" class="btn btn-secondary popover-test"-->
+<!--                       title="Popover title"-->
+<!--                       data-ng-dismiss="modal">{{reason.text}} </a></p>-->
+<!--                </div>-->
+<!--                <input type="text" class="form-control form-filter input-sm" name="KUNNR"-->
+<!--                       ng-model="reason" placeholder="Lý do khác ...."></td>-->
+<!--            </div>-->
+
+<!--            &lt;!&ndash; dialog buttons &ndash;&gt;-->
+<!--            <div class="modal-footer">-->
+<!--                <button type="button" class="btn btn-primary" data-ng-dismiss="modal" data-ng-click="reject(reason)">-->
+<!--                    OK-->
+<!--                </button>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->

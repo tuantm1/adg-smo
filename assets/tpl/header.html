@@ -1,0 +1,120 @@
+<!-- BEGIN HEADER INNER -->
+<div class="page-header-inner">
+    <!-- BEGIN LOGO -->
+    <div class="page-logo">
+        <div class="col-md-6"><a ui-sref="dashboard">
+            <img src="{{settings.layoutPath}}/img/Picture1.png" alt="logo" height="75px"/> </a></div>
+
+    </div>
+    <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse"
+       data-target=".navbar-collapse"> </a>
+    <!-- END LOGO -->
+    <!-- BEGIN PAGE TOP -->
+    <div class="page-top">
+        <!--        <div class="top-menu">-->
+        <!--            -->
+        <!--            <ul class="nav navbar-nav pull-right">-->
+        <!--                &lt;!&ndash; BEGIN QUICK SIDEBAR DROPDOWN &ndash;&gt;-->
+        <!--                <li class="dropdown dropdown-extended quick-sidebar-toggler" data-ng-click="">-->
+        <!--                    <span class="sr-only">Toggle Quick Sidebar</span>-->
+        <!--                    Xin chào, {{userData.username}}-->
+        <!--                    <i class="icon-logout" data-ng-click="logMeOut()"></i>-->
+        <!--                </li>-->
+        <!--                &lt;!&ndash; END QUICK SIDEBAR DROPDOWN &ndash;&gt;-->
+        <!--            </ul>-->
+        <!--        </div>-->
+        <div class="top-menu">
+            <ul class="nav navbar-nav pull-right">
+                <li class="separator hide"></li>
+                <!-- BEGIN NOTIFICATION DROPDOWN -->
+                <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+<!--                <li class="dropdown dropdown-extended dropdown-notification dropdown-dark" id="header_notification_bar">-->
+<!--                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"-->
+<!--                       data-close-others="true" aria-expanded="false">-->
+<!--                        <i class="icon-bell"></i>-->
+<!--                        <span class="badge badge-success">{{noti.length ? noti.length : 0}} </span>-->
+<!--                    </a>-->
+<!--                    <ul class="dropdown-menu">-->
+<!--                        <li class="external">-->
+<!--                            <h3>-->
+<!--                                <span class="bold">{{noti.length}} pending</span> notifications</h3>-->
+<!--&lt;!&ndash;                            <a href="#/profile/dashboard">view all</a>&ndash;&gt;-->
+<!--                        </li>-->
+<!--                        <li>-->
+<!--                            <div class="slimScrollDiv"-->
+<!--                                 style="position: relative; overflow: hidden; width: auto; height: 250px;">-->
+<!--                                <ul class="dropdown-menu-list scroller"-->
+<!--                                    style="height: 250px; overflow: hidden; width: auto;" data-handle-color="#637283"-->
+<!--                                    data-initialized="1">-->
+
+<!--                                    <li data-ng-repeat="noti in noti track by $index">-->
+<!--                                        <a data-ng-click="notificatons($index)">-->
+<!--                                            <span class="time">just now</span>-->
+<!--                                            <span class="details" >-->
+<!--                                                <span class="label label-sm label-icon label-success">-->
+<!--                                                    <i class="fa fa-plus"></i>-->
+<!--                                                </span> {{noti.NAME}} </span>-->
+<!--                                        </a>-->
+<!--                                    </li>-->
+<!--                                </ul>-->
+<!--                                <div class="slimScrollBar"-->
+<!--                                     style="background: rgb(99, 114, 131); width: 7px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 122.549px;"></div>-->
+<!--                                <div class="slimScrollRail"-->
+<!--                                     style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(234, 234, 234); opacity: 0.2; z-index: 90; right: 1px;"></div>-->
+<!--                            </div>-->
+<!--                        </li>-->
+<!--                    </ul>-->
+<!--                </li>-->
+                <!-- END NOTIFICATION DROPDOWN -->
+                <li class="separator hide"></li>
+                <li class="dropdown dropdown-user dropdown-dark">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
+                       data-close-others="true">
+                        <span class="username username-hide-on-mobile">{{header}} </span>
+                        <!-- DOC: Do not remove below empty space(&nbsp;) as its purposely used -->
+                        <img alt="" class="img-circle" src="./assets/layouts/layout4/img/avatar.png"> </a>
+                    <ul class="dropdown-menu dropdown-menu-default">
+                        <li>
+                            <a ui-sref="User.detail({userID: userData.id_user})">
+                                <i class="icon-user"></i> Tài khoản  </a>
+                        </li>
+<!--                        <li>-->
+<!--                            <a href="#">-->
+<!--                                <i class="icon-calendar"></i> My Calendar </a>-->
+<!--                        </li>-->
+                        <li>
+                            <a ui-sref="User.changePassword">
+                                <i class="icon-envelope-open"></i> Đổi mật khẩu
+                            </a>
+                        </li>
+                        <li>
+                            <a ui-sref="Order.list">
+                                <i class="icon-rocket"></i> Thông báo
+                                <span class="badge badge-success"> {{noti.length ? noti.length : 0}} </span>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+<!--                        <li>-->
+<!--                            <a href="#">-->
+<!--                                <i class="icon-lock"></i> Lock Screen </a>-->
+<!--                        </li>-->
+                        <li>
+                            <a data-ng-click="logMeOut()">
+                                <i class="icon-key"></i> Đăng xuất </a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- END USER LOGIN DROPDOWN -->
+                <!-- BEGIN QUICK SIDEBAR DROPDOWN -->
+                <li class="dropdown dropdown-extended quick-sidebar-toggler">
+                    <span class="sr-only">Toggle Quick Sidebar</span>
+                    <i class="icon-logout" data-ng-click="logMeOut()"></i>
+                </li>
+                <!-- END QUICK SIDEBAR DROPDOWN -->
+            </ul>
+        </div>
+        <!-- END TOP NAVIGATION MENU -->
+    </div>
+    <!-- END PAGE TOP -->
+</div>
+<!-- END HEADER INNER -->

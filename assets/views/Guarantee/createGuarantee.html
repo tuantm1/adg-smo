@@ -1,0 +1,191 @@
+<div class="content content-narrow">
+    <form class="js-validation-material push-10-t">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption font-dark "><span class="caption-subject bold uppercase"> Yêu cầu sản phẩm</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <h4 class="text-center bold uppercase">Thông tin của sản phẩm cần bảo hành</h4>
+                <div class="row">
+                    <div class="form-group col-md-10">
+                        <div class=" form-horizontal">
+                            <!-- <label class="col-md-12 control-label bold" style="text-align: left;">Sản phẩm:
+                                {{createGuarantee.MATNR}}</label> -->
+                            <label class="col-md-4 control-label bold" style="text-align: left;">Sản phẩm: </label>
+                            <div class="col-md-8">
+                                <select class="form-control" id="product-search" data-init-value='[{"id":"{{createGuarantee.MATNR}}","text":"{{createGuarantee.MAKTX}}"}]'></select>
+
+                                <div id="result-product-search" data-MAKTX="{{createGuarantee.MAKTX}}" data-MATNR="{{createGuarantee.MATNR}}" hidden></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-10">
+                        <div class=" form-horizontal">
+                            <label class="col-md-4 control-label bold" style="text-align: left;">Số seri:
+                            </label>
+                            <div class="col-md-8">{{createGuarantee.SERNR}}</div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-10">
+                        <div class=" form-horizontal">
+                            <label class="col-md-4 control-label bold" style="text-align: left;">Khách hàng: 
+                            </label>
+                            <div class="col-md-8">{{createGuarantee.MAKTX}}</div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-10">
+                        <div class=" form-horizontal">
+                            <label class="col-md-4 control-label bold" style="text-align: left;">Ngày mua hàng:
+                            </label>
+                            <div class="col-md-8">{{createGuarantee.GUAR_FDATE}}</div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-10">
+                        <div class=" form-horizontal">
+                            <label class="col-md-4 control-label bold" style="text-align: left;">Ngày hết hạn bảo hành:
+                            </label>
+                            <div class="col-md-8">{{createGuarantee.GUAR_TDATE}}</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-10">
+                        <div class=" form-horizontal">
+                            <label class="col-md-4 control-label" style="text-align: left;">Số lượng sản phẩm cần bảo
+                                hành:</label>
+                            <div class="col-md-8">
+                                <input type="number" name="i_sl" id="i_sl" class="form-control"
+                                    data-ng-model="createGuarantee.I_SL" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-10">
+                        <div class=" form-horizontal">
+                            <label class="col-md-4 control-label" style="text-align: left;">Loại yêu cầu:
+                            </label>
+                            <div class="col-md-8">
+                                <select class="form-control" data-ng-model="requestType" ng-options="item.code + '-' + item.name group by item.groupCode + '-' + item.groupName for item in requestTypes"></select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-10">
+                        <div class=" form-horizontal">
+                            <label class="col-md-4 control-label" style="text-align: left;">Mô tả sự cố của sản phẩm:
+                            </label>
+                            <div class="col-md-8">
+                                <textarea type="text" name="i_description" id="i_description" rows="5"
+                                    class="form-control" data-ng-model="createGuarantee.I_DESCRIPTION"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-10">
+                        <div class=" form-horizontal">
+                            <label class="col-md-4 control-label" style="text-align: left;">Tải file đính kèm:
+                            </label>
+                            <div class="col-md-6">
+                                <input type="file" name="attach_file_guarantee" />
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                    <div class="form-group col-md-10">
+                        <div class=" form-horizontal">
+                            <label class="col-md-4 control-label" style="text-align: right;"></label>
+                            <div class="col-md-6">
+                                <button class="btn btn-success" ng-click="submitCreateGuarantee()">Gửi yêu cầu bảo
+                                    hành</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </form>
+</div>
+
+<script  type="text/javascript">
+    // phần custem select2.
+    var $select2 = $("#product-search");
+    var data = JSON.parse(($select2.attr('data-init-value')));
+    $select2.select2({
+        data: data
+    });
+
+    function formatRepo(repo) {
+        //console.log('--------Reponse------', sc);
+        if (repo.loading) return repo.text;
+        var markup = "<label>" + repo.id + " - " + repo.text + "</label>";
+
+        return markup;
+    }
+
+    function formatRepoSelection(repo) {
+        if (repo.id == "") return repo.text;
+        else return "<span>" + repo.id + " - " + repo.text + "</span>";
+        
+        //return text || repo.text;
+    }
+
+    $select2.select2({
+        ajax: {
+            url: "http://103.21.148.147:8011/adg-qas/GET_MARA",
+            contentType: 'application/json',
+            type: 'POST',
+            delay: 300,
+            data: function (params) {
+                return JSON.stringify({
+                    // text: params.term, // search term
+                    // page: params.page
+                    ID_CREDIT: "",
+                    ID_ORDER: "",
+                    ID_USER: JSON.parse(localStorage.getItem("__the_token")).id_user,
+                    IT_MARAS : [
+                        {
+                            MATNR : "0000000000" + params.term
+                        }
+                    ]
+                });
+            },
+            processResults: function (data, params) {
+                // params.page = params.page || 1;
+                
+                if (data.MARAS !== undefined && data.MARAS.length > 0) {
+                    var res = data.MARAS.map(function(item) {
+                        return {
+                            id: item.MATNR,
+                            text: item.MAKTX,
+                        }
+                    });
+                    
+                    return {
+                        results: res,
+                        // pagination: {
+                        //     more: (params.page * 10) < data[0].Total
+                        // }
+                    };
+                }
+            },
+            // cache: false
+        },
+        placeholder: 'Nhập tên mặt hàng',
+        escapeMarkup: function (markup) { return markup; },
+        minimumInputLength: 8,
+        templateResult: formatRepo,
+        templateSelection: formatRepoSelection,
+        theme: 'adwitt',
+    });
+
+    $select2.data('select2').$container.addClass("form-control");
+
+    // $select2.val(null).trigger('change');
+
+    $select2.on("select2:selecting", function(e) { 
+        $('#result-product-search').attr("data-MAKTX", e.params.args.data.text);
+        $('#result-product-search').attr("data-MATNR", e.params.args.data.id);
+    });
+</script>

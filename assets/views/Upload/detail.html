@@ -1,0 +1,108 @@
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption font-dark">
+            <span class="caption-subject bold uppercase"> Thông tin khách hàng</span>
+        </div>
+        <div class="actions">
+            <div class="btn-group btn-group-devided" data-toggle="buttons">
+                <label class="btn btn-transparent dark btn-outline btn-circle btn-sm active">
+                    <input type="radio" name="options" class="toggle" id="option1">Actions</label>
+                <label class="btn btn-transparent dark btn-outline btn-circle btn-sm">
+                    <input type="radio" name="options" class="toggle" id="option2">Settings</label>
+            </div>
+        </div>
+    </div>
+    <div class="portlet-body">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="row pv-lg">
+                        <div class="col-lg-6">
+                            <div class="portlet light bordered">
+                            <form class="form-horizontal ng-pristine ng-valid">
+
+                                <div class="form-group">
+                                    Mã khách hàng: <strong>{{customer.KUNNR}}</strong>
+                                </div>
+                                <div class="form-group">
+                                    Tên khách hàng: <strong>{{customer.CUSTOMER_NAME}}</strong>
+                                </div>
+                                <div class="form-group">
+                                    Email: <strong>{{customer.EMAIL}}</strong>
+
+                                </div>
+                                <div class="form-group">
+                                    Fax: <strong>{{customer.FAX_NUMBER}}</strong>
+                                </div>
+                                <div class="form-group">
+                                    Tel Phone: <strong>{{customer.TEL_NUMBER}}</strong>
+                                </div>
+                                <div class="form-group">
+                                    Mobile Phone: <strong>{{customer.MOB_NUMBER}}</strong>
+                                </div>
+                                <div class="form-group">
+                                    ADDRESS: <strong>{{customer.ADDRESS}}</strong>
+                                </div>
+                                <div class="form-group">
+                                    Payment term: <strong>{{customer.ZTERM}}</strong>
+                                </div>
+
+
+                            </form>
+                            </div>
+                        </div>
+                        <div class="col-lg-6"><div class="portlet light bordered">
+                            <div class="portlet-title">
+                                <div class="caption font-dark">
+                                    <i class="font-dark"></i>
+                                    <span class="caption-subject bold uppercase"> Thông tin hạn mức tín dụng</span>
+                                </div>
+                            </div>
+                            <div class="portlet-body">
+                                <div id="sample_1_wrapper" class="dataTables_wrapper no-footer">
+                                    <div class="table-scrollable">
+                                        <table class="table table-striped table-bordered table-hover order-column dataTable no-footer"
+                                               id="sample_1" role="grid" aria-describedby="sample_1_info">
+                                            <thead>
+                                            <tr role="row">
+                                                <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1">
+                                                    Loại mặt hàng
+                                                </th>
+                                                <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"
+                                                    aria-label=" Email : activate to sort column ascending"> Hạn mức tín dụng
+                                                </th>
+
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+
+                                            <tr class="gradeX odd" role="row"
+                                                dir-paginate="list in customer.CZREDIT | filter:search:strict |itemsPerPage:10">
+                                                <td class="sorting_1" ui-sref="Order.detail({idOrder: list.ID_ORDER})">{{list.DIVISION}}</td>
+                                                <td class="sorting_1" ui-sref="Order.detail({idOrder: list.ID_ORDER})">{{list.VALUE}}</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-5 col-sm-5">
+                                        </div>
+                                        <dir-pagination-controls
+                                                max-size="10"
+                                                direction-links="true"
+                                                boundary-links="true">
+                                        </dir-pagination-controls>
+                                    </div>
+                                </div>
+                            </div>
+                        </div></div>
+                        </div>
+                    </div>
+                </div>
+<!--        <div class="form-group">-->
+<!--            <div class="">-->
+<!--                <button class="btn btn-info" type="submit" ui-sref="Customer.list">Done</button>-->
+<!--            </div>-->
+<!--        </div>-->
+        </div>
+    </div>
+

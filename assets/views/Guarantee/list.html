@@ -1,0 +1,68 @@
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption font-dark">
+            <span class="caption-subject bold uppercase"> Danh sách yêu cầu BHSC</span>
+        </div>
+    </div>
+    <div class="portlet-body">
+        <div class="table-toolbar">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="btn-group">
+                        <button id="search_guarantee" class="btn sbold green" ui-sref="Guarantee.searchInformation"> Tra
+                            cứu thông tin bảo hành </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="table-scrollable">
+            <table class="table table-striped table-bordered table-hover order-column dataTable no-footer" id="sample_1"
+                role="grid" aria-describedby="sample_1_info">
+                <thead>
+                    <tr role="row">
+                        <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"
+                            aria-label=" Email : activate to sort column ascending"> STT
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"
+                            aria-label=" Email : activate to sort column ascending"> Số serial
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"
+                            aria-label=" Status : activate to sort column ascending"> Tên đại lý
+                        </th>
+
+                        <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"
+                            aria-label=" Actions : activate to sort column ascending"> Tên hàng
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"
+                            aria-label=" Actions : activate to sort column ascending"> Trạng thái
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"
+                            aria-label=" Actions : activate to sort column ascending"> Loại YC
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"
+                            aria-label=" Actions : activate to sort column ascending"> Nguyên nhân lỗi
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"
+                            aria-label=" Actions : activate to sort column ascending"> #
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="gradeX odd" role="row" data-ng-repeat="item in lstGuarantee track by $index">
+                        <td class="sorting_1">{{$index + 1}}</td>
+                        <td class="sorting_1">{{item.QMNUM}}</td>
+                        <td class="sorting_1">{{customerName}}</td>
+                        <td class="sorting_1">{{item.MAKTX}}</td>
+                        <td class="sorting_1">{{item.USER_STATUS}}</td>
+                        <td class="sorting_1">{{getRequestTypeName(item.FECOD)}}</td>
+                        <td class="sorting_1">{{item.KURZTEXT}}</td>
+                        <td class="sorting_1">
+                            <button ng-click="downloadAttackFile(item.QMNUM)" type="button" class="btn btn-xs btn-success">
+                                <i class="fa fa-download"></i></button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

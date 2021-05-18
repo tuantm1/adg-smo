@@ -1,0 +1,286 @@
+<div class="content content-narrow">
+    <form class="js-validation-material push-10-t">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption font-dark">
+                    <i class="font-dark"></i>
+                    <span class="caption-subject bold uppercase"> Active tài khoản</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="row">
+                    <div class="form-group col-md-8">
+                        <div class=" form-horizontal">
+                            <label class="col-md-4 control-label custom-label-create-user">Tài khoản</label>
+                            <div class="col-md-8">
+                                <input type="text" name="username"
+                                       data-ng-model="theUser.username"
+                                       id="username"
+                                       class="form-control"
+                                >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-8">
+                        <div class=" form-horizontal">
+                            <label class="col-md-4 control-label custom-label-create-user">Mật khẩu</label>
+                            <div class="col-md-8">
+                                <input type="password" name="password"
+                                       data-ng-model="theUser.password"
+                                       id="password"
+                                       class="form-control"
+                                >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-8">
+                        <div class=" form-horizontal">
+                            <label class="col-md-4 control-label custom-label-create-user" >Tên người dùng</label>
+                            <div class="col-md-8">
+                                <input type="text" name="name"
+                                       data-ng-model="theUser.description"
+                                       id="name"
+                                       class="form-control"
+                                >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-8">
+                        <div class=" form-horizontal">
+                            <label class="col-md-4 control-label custom-label-create-user">Nhóm tài khoản</label>
+                            <div class="col-md-8">
+                                <select id="us_gr"
+                                        class="form-control"
+                                        data-ng-model="theUser.ID_GR"
+                                        data-ng-options="userGroup.ID_GR as userGroup.NAME for userGroup in userGroup"></select>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-8">
+                        <div class=" form-horizontal">
+                            <label class="col-md-4 control-label custom-label-create-user">Loại tài khoản</label>
+                            <div class="col-md-8">
+                                <select id="us_type"
+                                        class="form-control"
+                                        data-ng-model="theUser.us_type"
+                                        data-ng-options="userType.shortDes as userType.longDes for userType in userType"
+                                        ng-change="check_user_no_parent(theUser.us_type)"></select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+                <div class="col-md-10" data-ng-if="theUser.us_type =='U'">
+                    <div class="portlet light bordered">
+                        <div class="portlet-title">
+                            <div class="caption font-dark">
+                                <span class="caption-subject bold uppercase"> Danh sách tài khoản cấp dưới</span>
+                            </div>
+                        </div>
+                        <div class="portlet-body">
+                            <div id="sample_1_wrapper" class="dataTables_wrapper no-footer">
+                                <div class="row">
+                                        <table class="table table-striped table-bordered table-hover order-column dataTable no-footer"
+                                               id="sample_1" role="grid" aria-describedby="sample_1_info">
+                                            <thead>
+                                            <tr role="row">
+                                                <th tabindex="0" aria-controls="sample_1" rowspan="1"
+                                                    colspan="1" style="width: 50px;"
+                                                    aria-label=" Actions : activate to sort column ascending"> Chọn
+                                                </th>
+                                                <!-- <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1"
+                                                    colspan="1" style="width: 15%;"
+                                                    aria-label=" Email : activate to sort column ascending"> Mã tài
+                                                    khoản
+                                                </th> -->
+                                                <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1"
+                                                    colspan="1" style="width: 25%;"
+                                                    aria-label=" Status : activate to sort column ascending"> Tài khoản
+                                                </th>
+                                                <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1"
+                                                    colspan="1" 
+                                                    aria-label=" Joined : activate to sort column ascending"> Tên người dùng
+                                                </th>
+
+                                                <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1"
+                                                    colspan="1" style="width: 25%;"
+                                                    aria-label=" Joined : activate to sort column ascending"> Loại tài
+                                                    khoản
+                                                </th>
+                                               
+                                            </tr>
+                                            <tr role="row" class="filter">
+                                                <td rowspan="1" colspan="1">
+                                                    <!-- <input type="text" class="form-control form-filter input-sm"
+                                                           name="KUNNR"> -->
+                                                </td>
+                                                <!-- <td rowspan="1" colspan="1">
+                                                    <input type="text" class="form-control form-filter input-sm"
+                                                           name="order_id"
+                                                           ng-model="search.ID_USER"></td> -->
+                                                <td rowspan="1" colspan="1">
+                                                    <input type="text" class="form-control form-filter input-sm"
+                                                           name="order_id" ng-model="search.USERNAME"></td>
+                                                <td rowspan="1" colspan="1">
+                                                    <input type="text" class="form-control form-filter input-sm"
+                                                        name="order_id" ng-model="search.DESCRIPTION"></td>
+                                                <td rowspan="1" colspan="1">
+                                                    <input type="text" class="form-control form-filter input-sm"
+                                                           name="order_id" ng-model="search.US_TYPE"></td>
+                                               
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr class="gradeX odd" role="row" 
+                                                dir-paginate="user in listUser_U | filter:search:strict |itemsPerPage:10"
+                                                pagination-id='user'>
+                                                <td><label class="mt-checkbox mt-checkbox-outline">
+                                                    <input type="checkbox" data-ng-model="user.choose">
+                                                    <span></span>
+                                                </label></td>
+                                                <!-- <td class="sorting_1">{{user.ID_USER}}</td> -->
+                                                <td class="sorting_1">{{user.USERNAME}}</td>                                                
+                                                <td class="sorting_1">{{user.DESCRIPTION}}</td>
+                                                <td class="sorting_1">{{user.des_us_type}}</td>
+
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-5 col-sm-5">
+                                        </div>
+                                        <dir-pagination-controls pagination-id="user"
+                                                                 max-size="10"
+                                                                 direction-links="true"
+                                                                 boundary-links="true">
+                                        </dir-pagination-controls>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12" data-ng-if="theUser.us_type =='K'">
+                    <div class="portlet light bordered">
+                        <div class="portlet-title">
+                            <div class="caption font-dark">
+                                <span class="caption-subject bold uppercase"> Danh sách tài khoản cấp dưới</span>
+                            </div>
+                        </div>
+                        <div class="portlet-body">
+                            <div id="sample_1_wrapper2" class="dataTables_wrapper no-footer">
+                                <div class="row">
+                                    <div class="table-scrollable">
+                                        <table class="table table-striped table-bordered table-hover order-column dataTable no-footer"
+                                               id="sample_12" role="grid" aria-describedby="sample_1_info">
+                                            <thead>
+                                            <tr role="row">
+                                                <th tabindex="0" aria-controls="sample_1" rowspan="1"
+                                                    colspan="1" style="width: 50px;"
+                                                    aria-label=" Actions : activate to sort column ascending"> Chọn
+                                                </th>
+                                                <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1"
+                                                    colspan="1" style="width: 15%;"
+                                                    aria-label=" Email : activate to sort column ascending"> Mã tài
+                                                    khoản
+                                                </th>
+                                                <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1"
+                                                    colspan="1"
+                                                    aria-label=" Status : activate to sort column ascending"> Tên tài
+                                                    khoản
+                                                </th>
+                                                <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1"
+                                                    colspan="1"
+                                                    aria-label=" Joined : activate to sort column ascending"> Loại tài
+                                                    khoản
+                                                </th>
+                                                <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1"
+                                                    colspan="1"
+                                                    aria-label=" Joined : activate to sort column ascending"> Mô tả
+                                                </th>
+
+                                            </tr>
+                                            <tr role="row" class="filter">
+                                                <td rowspan="1" colspan="1">
+                                                    <!-- <input type="text" class="form-control form-filter input-sm"
+                                                           name="KUNNR"> -->
+                                                </td>
+                                                <td rowspan="1" colspan="1">
+                                                    <input type="text" class="form-control form-filter input-sm"
+                                                           name="order_id"
+                                                           ng-model="search2.ID_USER"></td>
+                                                <td rowspan="1" colspan="1">
+                                                    <input type="text" class="form-control form-filter input-sm"
+                                                           name="order_id" ng-model="search2.USERNAME"></td>
+                                                <td rowspan="1" colspan="1">
+                                                    <input type="text" class="form-control form-filter input-sm"
+                                                           name="order_id" ng-model="search2.US_TYPE"></td>
+                                                <td rowspan="1" colspan="1">
+                                                    <input type="text" class="form-control form-filter input-sm"
+                                                           name="order_id" ng-model="search2.DESCRIPTION"></td>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr class="gradeX odd" role="row"
+                                                dir-paginate="user2 in listUser_K | filter:search2:strict |itemsPerPage:10"
+                                                pagination-id='user2'>
+                                                <td><label class="mt-checkbox mt-checkbox-outline">
+                                                    <input type="checkbox" data-ng-model="user.choose">
+                                                    <span></span>
+                                                </label></td>
+                                                <td class="sorting_1">{{user2.ID_USER}}</td>
+                                                <td class="sorting_1">{{user2.USERNAME}}</td>
+                                                <td class="sorting_1">{{user2.des_us_type}}</td>
+                                                <td class="sorting_1">{{user2.DESCRIPTION}}</td>
+
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-5 col-sm-5">
+                                        </div>
+                                        <dir-pagination-controls pagination-id="user2"
+                                                                 max-size="10"
+                                                                 direction-links="true"
+                                                                 boundary-links="true">
+                                        </dir-pagination-controls>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="portlet-body">
+                    <button class="btn btn-sm btn-primary" type="button" data-ng-click="submitUserForm()">Lưu tài khoản
+                    </button>
+                    <button class="btn btn-sm btn-danger" type="button" data-ng-click="submitUserForm()">Hủy
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+    </form>
+</div>
+<script>
+    jQuery(function ($) {
+        $("body").on('click', '.nav.nav-tabs', function (e) {
+            e.preventDefault();
+            jQuery(this).tab('show');
+        });
+    })
+</script>

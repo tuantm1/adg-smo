@@ -1,0 +1,61 @@
+<div class="content content-narrow">
+    <form class="js-validation-material push-10-t">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption font-dark "><span class="caption-subject bold uppercase"> Thông tin bảo hành sản
+                        phẩm</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="table-toolbar">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="btn-group">
+                                <button id="create_guarantee_request" class="btn sbold green"
+                                    ng-click="createGuarantee()"> Tạo yêu cầu BHSC </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-scrollable">
+                    <table class="table table-striped table-bordered table-hover order-column dataTable no-footer"
+                        id="sample_1" role="grid" aria-describedby="sample_1_info">
+                        <thead>
+                            <tr role="row">
+                                <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"> STT
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"> Số serial
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"> Tên đại lý
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"> Tên hàng
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"> Thời gian bảo hành từ
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"> Ngày kết thúc
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"> Số ngày còn lại
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="gradeX odd" role="row"
+                                data-ng-repeat="item in lstGuaranteeInformation track by $index">
+                                <td class="sorting_1">
+                                    <input type="radio" name="options" class="toggle" ng-click="setGuarantee(item)" />
+                                </td>
+                                <td class="sorting_1">{{item.SERNR}}</td>
+                                <td class="sorting_1">{{customerName}}</td>
+                                <td class="sorting_1">{{item.MAKTX}}</td>
+                                <td class="sorting_1">{{item.GUAR_FDATE}}</td>
+                                <td class="sorting_1">{{item.GUAR_TDATE}}</td>
+                                <td class="sorting_1">{{(item.GUAR_DATE > 0) ? item.GUAR_DATE : 0 }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </form>
+</div>

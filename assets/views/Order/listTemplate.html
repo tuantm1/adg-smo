@@ -1,0 +1,158 @@
+<div class="content content-narrow">
+    <form class="js-validation-material push-10-t" data-ng-submit="submitDuAnForm()" method="post">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption font-dark "><span class="caption-subject bold uppercase">Tạo mới đơn đặt hàng</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="row">
+                    <div class="form-group col-md-8">
+                        <div class="form-horizontal">
+                            <label class="control-label col-md-4" style="text-align: right">Đơn vị bán hàng
+                                <span class="required" aria-required="true"></span>
+                            </label>
+                            <div class="col-md-8">
+                                <select class="form-control" name="options2"
+                                        tabindex="-1" aria-hidden="true" aria-required="true" aria-invalid="false"
+                                        aria-describedby="options2-error"
+                                        data-ng-model="sale_org"
+                                        ng-change="loadOrder(division, dc)"
+                                        data-ng-options="sale_org.VKORG as sale_org.VTEXT for sale_org in sale_orgs">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-8">
+                        <div class="form-horizontal">
+                            <label class="control-label col-md-4" style="text-align: right">Kênh bán hàng
+                                <span class="required" aria-required="true"></span>
+                            </label>
+                            <div class="col-md-8">
+                                <select class="form-control" name="options2"
+                                        tabindex="-1" aria-hidden="true" aria-required="true" aria-invalid="false"
+                                        aria-describedby="options2-error"
+                                        data-ng-model="dc"
+                                        data-ng-options="distribution_channel.VTWEG as distribution_channel.VTEXT for distribution_channel in distribution_channels">
+                                </select>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-8">
+                        <div class="form-horizontal">
+                            <label class="control-label col-md-4" style="text-align: right">Ngành hàng
+                                <span class="required" aria-required="true"></span>
+                            </label>
+                            <div class="col-md-8">
+                                <select class="form-control" name="options2"
+                                        tabindex="-1" aria-hidden="true" aria-required="true" aria-invalid="false"
+                                        aria-describedby="options2-error"
+                                        data-ng-model="division"
+                                        ng-change="loadOrder(division, dc)"
+                                        data-ng-options="division.SPART as division.VTEXT for division in divisions">
+                                </select>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-8">
+                        <div class="form-horizontal">
+                            <label class="control-label col-md-4" style="text-align: right">Đơn đặt hàng mẫu
+                                <span class="required" aria-required="true"></span>
+                            </label>
+                            <div class="col-md-8">
+                                <select class="form-control" name="options2"
+                                        tabindex="-1" aria-hidden="true" aria-required="true" aria-invalid="false"
+                                        aria-describedby="options2-error"
+                                        data-ng-model="chooseTemplate"
+                                        data-ng-options="templates.ID_TEMPLATE as templates.NAME for templates in templates">
+                                </select>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" data-ng-if="division === '02'">
+                    <div class="form-group col-md-12">
+                        <div class="form-horizontal">
+                            <label class="control-label col-md-3" style="text-align: right">Thao tác đặt hàng nhôm hệ
+                                <span class="required" aria-required="true"></span>
+                            </label>
+                            <label class="radio-inline col-md-2"><input type="radio" data-ng-model="excel.value"
+                                                                        value="X"
+                                                                        checked>Đặt nhôm bằng file excel</label>
+                            <label class="radio-inline col-md-2"><input type="radio" data-ng-model="excel.value"
+                                                                        value=""
+                                                                        name="optradio">Đặt nhôm thủ công</label>
+                            <label class="radio-inline col-md-2"><input type="radio" data-ng-model="excel.value"
+                                                                        value="DHPK"
+                                                                        name="optradio">Đặt nhôm phụ kiện excel</label>
+                            <label class="radio-inline col-md-2"><input type="radio" data-ng-model="excel.value"
+                                                                        value="PKNH"
+                                                                        name="optradio">Đặt nhôm phụ kiện thủ
+                                công</label>
+                            <label class="radio-inline col-md-2"><input type="radio" data-ng-model="excel.value"
+                                                                        value="NHCCBH"
+                                                                        name="optradio">Công cụ bán hàng</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" data-ng-if="division === '01'">
+                    <div class="form-group col-md-12">
+                        <div class="form-horizontal">
+                            <label class="control-label col-md-3" style="text-align: right">Thao tác đặt hàng Cửa cuốn
+                                <span class="required" aria-required="true"></span>
+                            </label>
+                            <div class="col-md-9">
+                                <label class="radio-inline col-md-2" data-ng-if="sale_org==='1000'"><input type="radio"
+                                                                                                           data-ng-model="cua_cuon.value"
+                                                                                                           value="PKADC">Phụ
+                                    kiện AD</label>
+                                <label class="radio-inline col-md-2" data-ng-if="sale_org==='3000'"><input type="radio"
+                                                                                                           data-ng-model="cua_cuon.value"
+                                                                                                           value="PKDTC">Phụ
+                                    kiện DT</label>
+                                <label class="radio-inline col-md-3"><input type="radio" data-ng-model="cua_cuon.value"
+                                                                            value="PKNL">Phụ
+                                    kiện nan lẻ và thanh đáy</label>
+                                <label class="radio-inline col-md-2"><input type="radio" data-ng-model="cua_cuon.value"
+                                                                            value="CCBH"
+                                                                            name="optradio">Công cụ bán hàng</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="form-group col-md-8">
+                        <div class="col-md-4">
+                        </div>
+                        <div class="col-md-8">
+                            <button id="sample_editable_1_new" class="btn sbold green"
+                                    data-ng-click="createByExcel(chooseTemplate, dc, sale_org)"
+                                    data-ng-if="excel.value!=='' && (excel.value!=='NHCCBH' && excel.value!=='PKNH')">
+                                Tiến hành đặt hàng
+                            </button>
+                            <button id="sample_editable_2_new" class="btn sbold green"
+                                    data-ng-click="createManual(chooseTemplate, dc, sale_org)"
+                                    data-ng-if="excel.value===''||excel.value===undefined||(excel.value==='NHCCBH' || excel.value==='PKNH')">
+                                Tiến hành đặt hàng
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="clearfix"></div> -->
+
+        </div>
+    </form>
+</div>

@@ -1,0 +1,138 @@
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption font-dark">
+            <span class="caption-subject bold uppercase"> PHÊ DUYỆT YÊU CẦU BẢO LÃNH ĐƠN HÀNG
+</span>
+        </div>
+
+    </div>
+    <div class="portlet-body">
+        <div class="table-toolbar">
+            <div class="row">
+                <div class="col-md-6">
+                    <!--                    <div class="btn-group" data-ng-repeat="action in action track by $index">-->
+                    <!--                        <button id="sample_editable_1_new" class="btn sbold green" ui-sref="Order.list_template"-->
+                    <!--                                data-ng-if="action.FUNCTIONMODULE === 'CREATE_ORDER'"> Tạo-->
+                    <!--                            đơn hàng-->
+                    <!--                        </button>-->
+                    <!--                    </div>-->
+                </div>
+
+            </div>
+        </div>
+        <div id="sample_1_wrapper" class="dataTables_wrapper no-footer">
+            <div class="table-scrollable">
+                <table class="table table-striped table-bordered table-hover order-column dataTable no-footer"
+                       id="sample_1" role="grid" aria-describedby="sample_1_info">
+                    <thead>
+                    <tr role="row">
+                        <th tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1" style="width: 120px;">
+                            Số yêu cầu
+                        </th>
+                        <th tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1" style="width: 120px;"
+                            aria-label=" Status : activate to sort column ascending"> Ngày yêu cầu
+                        </th>
+                        <th tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"
+                            aria-label=" Status : activate to sort column ascending"> Người yêu cầu
+                        </th>
+                        <th  tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"
+                            aria-label=" Status : activate to sort column ascending"> Đại lý được bảo lãnh
+                        </th>
+
+                        <th tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1" style="width: 150px;"
+                            aria-label=" Joined : activate to sort column ascending"> Số tiền bảo lãnh
+                        </th>
+                        <th tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1" style="width: 150px;"
+                            aria-label=" Joined : activate to sort column ascending"> Trạng thái
+                        </th>
+                        <th tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"
+                            aria-label=" Actions : activate to sort column ascending" style="width: 200px;"> Thao tác
+                        </th>
+                    </tr>
+                    <tr role="row" class="filter">
+                        <td rowspan="1" colspan="1">
+                            <input type="text" class="form-control form-filter input-sm" name="KUNNR"
+                                   ng-model="search.ID_ORDER"></td>
+                        <td rowspan="1" colspan="1">
+                            <input type="text" class="form-control form-filter input-sm" name="order_id"
+                                   ng-model="search.Z_DATE"></td>
+                        <td rowspan="1" colspan="1">
+                            <input type="text" class="form-control form-filter input-sm" name="order_id"
+                                   ng-model="search.itemText"></td>
+                        <td rowspan="1" colspan="1">
+                            <input type="text" class="form-control form-filter input-sm" name="order_id"
+                                    ng-model="search.itemText"></td>
+                        <td rowspan="1" colspan="1">
+                            <input type="text" class="form-control form-filter input-sm" name="order_id"
+                                   ng-model="search.CREATE_BY_NAME"></td>
+                        <td rowspan="1" colspan="1">
+                        </td>
+                        <td rowspan="1" colspan="1">
+                        </td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="gradeX odd" role="row"
+                        dir-paginate="list in listCredit | filter:search:strict |itemsPerPage:10">
+                        <td class="sorting_1" ui-sref="CREDIT.detail({idCredit: list.ID_CREDIT})">{{list.ID_CREDIT}}</td>
+                        <td class="sorting_1" ui-sref="CREDIT.detail({idCredit: list.ID_CREDIT})">{{list.ZDATE}}</td>
+                        <td class="sorting_1" ui-sref="CREDIT.detail({idCredit: list.ID_CREDIT})"></td>
+                        <td class="sorting_1" ui-sref="CREDIT.detail({idCredit: list.ID_CREDIT})">{{list.NAME_SHIPTO}}
+                        </td>
+                        <td class="sorting_1" ui-sref="CREDIT.detail({idCredit: list.ID_CREDIT})" style="text-align: right;">{{list.STBL|number:0}}</td>
+                        <td class="sorting_1" data-ng-if="list.STATUS==='1'"><span
+                                class="label label-sm label-success">Đã bảo lãnh</span></td>
+                        <td class="sorting_1" data-ng-if="list.STATUS!=='1'"><span
+                                class="label label-sm label-warning">Chờ phê duyệt</span></td>
+                        <td class="sorting_1" >
+                            <div  data-ng-if="list.STATUS!=='1'">
+                                <a data-ng-click="approve(list.ID_ORDER)"
+                                   data-ng-if="list.ID_APPROVE===userData.id_user"
+                                   class="btn btn-xs btn-success" type="button"
+                                   title="Phê duyệt">Bảo lãnh</a>
+                                <a data-ng-click="rejectReason(list.ID_ORDER)"
+                                   class="btn btn-xs btn-danger" type="button"
+                                   title="Từ chối" data-toggle="modal" data-target="#myModal2" style="float: left">Từ
+                                    chối</a>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="row">
+                <div class="col-md-5 col-sm-5">
+                </div>
+                <dir-pagination-controls
+                        max-size="10"
+                        direction-links="true"
+                        boundary-links="true">
+                </dir-pagination-controls>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="myModal2" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- dialog body -->
+            <div class="modal-body">
+                <h4><span class="caption-subject bold uppercase">Lý do từ chối bảo lãnh</span></h4>
+                <div data-ng-repeat="reason in listRejectReason track by $index">
+                    <a data-ng-click="reject(reason.text)" role="button" class="btn btn-secondary popover-test"
+                       title="Popover title"
+                       data-ng-dismiss="modal">{{reason.text}} </a></p>
+                </div>
+                <input type="text" class="form-control form-filter input-sm" name="KUNNR"
+                       ng-model="reason" placeholder="Lý do khác ...."></td>
+            </div>
+
+            <!-- dialog buttons -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-ng-dismiss="modal" data-ng-click="reject(reason)">
+                    OK
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

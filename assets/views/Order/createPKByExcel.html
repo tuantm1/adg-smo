@@ -1,0 +1,536 @@
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption font-dark">
+            <i class="font-dark"></i>
+            <span class="caption-subject bold uppercase"> Thông tin đặt hàng</span>
+        </div>
+    </div>
+    <div class="portlet-body">
+        <div id="sample_1_wrapper" class="dataTables_wrapper no-footer">
+            <div class="form-group col-md-10">
+                <div class="form-group">
+                    <!--                    <div class="btn-group">-->
+                    <!--                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"-->
+                    <!--                                aria-haspopup="true" aria-expanded="false">-->
+                    <!--                            Tải xuống file mẫu-->
+                    <!--                        </button>-->
+                    <!--                        <div class="dropdown-menu dropdown-menu-right" style="min-width: 50px !important;">-->
+                    <!--                            <button class="dropdown-item" type="button" style="width: 100%"-->
+                    <!--                                    data-ng-click="submitFile('VIETPHAP')">VIETPHAP-->
+                    <!--                            </button>-->
+                    <!--                            <button class="dropdown-item" type="button" style="width: 100%"-->
+                    <!--                                    data-ng-click="submitFile('XINGFA')">XINGFA-->
+                    <!--                            </button>-->
+                    <!--                            <button class="dropdown-item" type="button" style="width: 100%"-->
+                    <!--                                    data-ng-click="submitFile('SLIMA')">SLIMA-->
+                    <!--                            </button>-->
+                    <!--                            <button class="dropdown-item" type="button" style="width: 100%"-->
+                    <!--                                    data-ng-click="submitFile('PRIMA')">PRIMA-->
+                    <!--                            </button>-->
+                    <!--                            <button class="dropdown-item" type="button" style="width: 100%"-->
+                    <!--                                    data-ng-click="submitFile('55AD')">55AD-->
+                    <!--                            </button>-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
+
+                    <label for="input1" class="btn btn-xs btn-success">Chọn file đơn hàng</label>
+                    <input class="btn btn-xs btn-success" type="file" id="input1" accept=".xls,.xlsx,.ods"
+                           style="visibility:hidden;"/>
+                    <input data-ng-model="filename" disabled="disabled" style="width:500px"/>
+                    <button data-ng-click="submitUpload()">Tải lên</button>
+                </div>
+            </div>
+
+            <table class="table table-striped table-bordered table-hover order-column dataTable no-footer"
+                   id="sample_2" role="grid" aria-describedby="sample_1_info">
+                <thead>
+                <tr role="row" style="text-align: center">
+                    <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"
+                        style="text-align: center; vertical-align: middle;"
+                        aria-label=" Email : activate to sort column ascending"> STT
+                    </th>
+                    <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"
+                        style="text-align: center; vertical-align: middle; width: 80px;"
+                        aria-label=" Email : activate to sort column ascending"> Mã<br/>vật tư
+                    </th>
+                    <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"
+                        style="text-align: center; vertical-align: middle; width: 80px;"
+                        aria-label=" Email : activate to sort column ascending"> Mã<br/>giao dịch
+                    </th>
+                    <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"
+                        style="text-align: center; vertical-align: middle;"
+                        aria-label=" Email : activate to sort column ascending"> Tên gọi
+                    </th>
+                    <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"
+                        style="text-align: center; vertical-align: middle;"
+                        aria-label=" Email : activate to sort column ascending"> ĐVT
+                    </th>
+                    <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"
+                        style="text-align: center; vertical-align: middle;"
+                        aria-label=" Email : activate to sort column ascending"> Màu sắc
+                    </th>
+                    <!-- <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"
+                        style="text-align: center; vertical-align: middle;"
+                        aria-label=" Email : activate to sort column ascending"> Quy<br/>cách -->
+                    </th>
+                    <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"
+                        style="text-align: center; vertical-align: middle; width: 80px;"
+                        aria-label=" Email : activate to sort column ascending"> Quy cách<br/>đóng gói
+                    </th>
+
+
+                    <th tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"
+                        style="text-align: center; vertical-align: middle;"
+                        aria-label=" Joined : activate to sort column ascending"> Số lượng<br/>đặt hàng
+                    </th>
+                    <th tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"
+                        style="text-align: center; vertical-align: middle; width: 80px;"
+                        aria-label=" Joined : activate to sort column ascending"> Cảnh báo<br/>quy cách lẻ
+                    </th>
+
+                    <th tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"
+                        style="text-align: center; vertical-align: middle; width: 100px;"
+                        aria-label=" Joined : activate to sort column ascending">Đơn giá<br/>chưa VAT
+                    </th>
+                    <th tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"
+                        style="text-align: center; vertical-align: middle;"
+                        aria-label=" Joined : activate to sort column ascending">Thành tiền
+                    </th>
+
+                    <!--                        <th tabindex="0" aria-controls="sample_1" rowspan="2" colspan="1" style="text-align: center; vertical-align: middle;"-->
+                    <!--                            aria-label=" Actions : activate to sort column ascending"> Thao tác-->
+                    <!--                        </th>-->
+                </tr>
+                </thead>
+                <tbody>
+
+                <tr class="gradeX odd" role="row" data-ng-repeat="i in order.ITEMS track by $index">
+                    <td class="sorting_1">{{i.STT}}</td>
+                    <td class="sorting_1">{{i.MATNR_DIS}}</td>
+                    <td class="sorting_1">{{i.MA_GIAO_DICH}}</td>
+                    <td class="sorting_1">{{i.NAME}}</td>
+                    <td class="sorting_1">{{i.sale_unit}}</td>
+                    <td class="sorting_1">{{i.MAUSAC}}</td>
+                    <!-- <td class="sorting_1">{{i.quy_cach}}</td> -->
+                    <td class="sorting_1" style="text-align: center;">{{i.quy_cach_dg}}</td>
+                    <td class="sorting_1" style="text-align: right;">{{i.quantity}}</td>
+                    <td class="sorting_1" style="text-align: center;">{{i.cb_qc}}</td>
+                    <td class="sorting_1" style="text-align: right;">{{i.price|number:0}}</td>
+                    <td class="sorting_1" style="text-align: right;">{{i.total_price|number:0}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="table-toolbar" data-ng-if="theOrder.DIVISION!=='02'">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="btn-group">
+                        <button id="sample_editable_1_new" class="btn sbold green" data-ng-click="addNew()"> Thêm mới
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group col-md-12">
+                    <div class="form-group">
+                        <label class="col-md-2 control-label" style="text-align: right;"><strong>Ghi chú đặt
+                            hàng</strong></label>
+                        <div class="col-md-10">
+                            <textarea class="form-control" rows="1" data-ng-model="theOrder.NOTE"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<form class="js-validation-material push-10-t" data-ng-submit="submitDuAnForm()" method="post">
+    <div class="portlet light bordered">
+        <div class="portlet-title">
+            <div class="caption font-dark">
+                <i class="font-dark"></i>
+                <span class="caption-subject bold uppercase"> <strong>Thông tin Giao hàng và công nợ</strong></span>
+            </div>
+        </div>
+        <div class="portlet-body">
+            <div class="row">
+                <div class="form-group col-md-10">
+                    <div class=" form-horizontal">
+                        <label class="col-md-4 control-label"
+                               style="text-align: right;"><strong>Ngày đặt hàng</strong></label>
+                        <div class="col-md-3">
+                            <input type="text" name="today"
+                                   data-ng-model="today"
+                                   id="today"
+                                   class="form-control"
+                                   style="text-align: center;"
+                                   disabled="disabled"
+                            >
+                            <script>
+                                $('#today').datepicker({
+                                    format: 'dd/mm/yyyy',
+                                    footer: true,
+                                    modal: true
+                                });
+                            </script>
+                        </div>
+                        <div class="col-md-1">
+                            <input type="text" name="today"
+                                   data-ng-model="tg_dh"
+                                   id="tg_dh"
+                                   class="form-control"
+                                   disabled="disabled"
+                                   style="text-align: center;"
+                            >
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="form-group col-md-10">
+                    <div class="form-horizontal">
+                        <label class="control-label col-md-4" style="text-align: right;"><strong>Ngày yêu cầu giao
+                            hàng</strong>
+                            <span class="required" aria-required="true"></span>
+                        </label>
+                        <div class="col-md-3">
+                            <input id="input" class="form-control" style="text-align: center;" name="date"
+                                   style="width: 100%"
+                                   data-ng-model="theDate"/>
+                            <script>
+                                $('#input').datepicker({
+                                    format: 'dd/mm/yyyy',
+                                    footer: true,
+                                    modal: true
+                                });
+                            </script>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="form-group col-md-10">
+                    <div class="form-horizontal">
+                        <label class="control-label col-md-4"
+                               style="text-align: right;"><strong>Đại lý đặt hàng</strong>
+                            <span class="required" aria-required="true"></span>
+                        </label>
+                        <div class="col-md-7">
+                            <input type="text" name="tem_name"
+                                   data-ng-model="theOrder.name_shipto"
+                                   id="customer_cmt"
+                                   class="form-control"
+                                   disabled="disabled"
+                            >
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+
+                <div class="form-group col-md-10">
+                    <div class=" form-horizontal">
+                        <label class="col-md-4 control-label"
+                               style="text-align: right;"><strong>Địa chỉ giao hàng</strong></label>
+                        <div class="col-md-4">
+                            <select class="form-control js-example-basic-single" name="options2" id="option"
+                                    tabindex="-1" aria-hidden="true" aria-required="true"
+                                    aria-invalid="false"
+                                    aria-describedby="options2-error"
+                                    data-ng-model="addressOption"
+                                    ng-change="loadAddress(addressOption)">
+                                <option value="" selected>Giao đến Showroom đại lý</option>
+                                <option value="1">Giao đến địa chỉ khác</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="form-group col-md-10">
+                    <div class=" form-horizontal">
+                        <label class="col-md-4 control-label"
+                               style="text-align: right;"><strong></strong></label>
+                        <div class="col-md-7">
+                            <input type="text" name="mst"
+                                   data-ng-model="address"
+                                   id="mst"
+                                   class="form-control"
+                            >
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="form-group col-md-10">
+                    <div class=" form-horizontal">
+                        <label class="col-md-4 control-label"
+                               style="text-align: left"></label>
+                        <div class="col-md-3">
+                            <select class="form-control js-example-basic-single" name="options2"
+                                    tabindex="-1" aria-hidden="true" aria-required="true"
+                                    aria-invalid="false"
+                                    aria-describedby="options2-error"
+                                    data-ng-model="vsart"
+                                    ng-change="loadRoute(vsart)"
+                                    data-ng-options="t173t.VSART as t173t.BEZEI for t173t in gt_t173t">
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <select class="form-control js-example-basic-single" name="options2"
+                                    tabindex="-1" aria-hidden="true" aria-required="true"
+                                    aria-invalid="false"
+                                    aria-describedby="options2-error"
+                                    data-ng-model="route"
+                                    ng-change="check_price()"
+                                    data-ng-options="route.ROUTE as route.BEZEI for route in gt_route">
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="form-group col-md-10">
+                    <div class=" form-horizontal">
+                        <label class="col-md-4 control-label"
+                               style="text-align: right;"><strong>Tên người nhận hàng</strong></label>
+                        <div class="col-md-3">
+                            <input type="text" name="tem_name"
+                                   data-ng-model="theOrder.ten_nnh"
+                                   id="name_customer"
+                                   class="form-control"
+                            >
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="form-group col-md-10">
+                    <div class=" form-horizontal">
+                        <label class="col-md-4 control-label"
+                               style="text-align: right;"><strong>Điện thoại liên hệ</strong></label>
+                        <div class="col-md-3">
+                            <input type="text" name="tem_name"
+                                   data-ng-model="theOrder.phone_number"
+                                   id="customer_phone"
+                                   class="form-control"
+                            >
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="form-group col-md-10">
+                    <div class="form-horizontal">
+                        <label class="control-label col-md-4"
+                               style="text-align: right;"><strong>Tổng tiền hàng (Đồng)</strong>
+                            <span class="required" aria-required="true"></span>
+                        </label>
+                        <div class="col-md-3">
+                            <input type="text" name="total"
+                                   number-format=""
+                                   data-ng-model="total_price"
+                                   id="total" style="text-align: right;"
+                                   class="form-control"
+                                   disabled="disabled"
+                            >
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="form-group col-md-10">
+                    <div class="form-horizontal">
+                        <label class="control-label col-md-4"
+                               style="text-align: right;"><strong>Chiết khấu đơn hàng (Đồng)</strong>
+                            <span class="required" aria-required="true"></span>
+                        </label>
+                        <div class="col-md-3">
+                            <input type="text" name="tem_name"
+                                   number-format=""
+                                   data-ng-model="ck"
+                                   id="ck" style="text-align: right;"
+                                   class="form-control"
+                                   disabled="disabled"
+                            >
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="form-group col-md-10">
+                    <div class="form-horizontal">
+                        <label class="control-label col-md-4"
+                               style="text-align: right;"><strong>Tổng tiền sau chiết khấu (Đồng)</strong>
+                            <span class="required" aria-required="true"></span>
+                        </label>
+                        <div class="col-md-3">
+                            <input type="text" name="price_after_ck"
+                                   number-format=""
+                                   data-ng-model="price_after_ck"
+                                   id="price_after_ck" style="text-align: right;"
+                                   class="form-control"
+                                   disabled="disabled"
+                            >
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="form-group col-md-10">
+                    <div class="form-horizontal">
+                        <label class="control-label col-md-4"
+                               style="text-align: right;"><strong>Thuế GTGT (Đồng)</strong>
+                            <span class="required" aria-required="true"></span>
+                        </label>
+                        <div class="col-md-3">
+                            <input type="text" name="tax"
+                                   number-format=""
+                                   data-ng-model="tax"
+                                   id="tax" style="text-align: right;"
+                                   class="form-control"
+                                   disabled="disabled"
+                            >
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="form-group col-md-10">
+                    <div class="form-horizontal">
+                        <label class="control-label col-md-4"
+                               style="text-align: right;"><strong>Số tiền cần thanh toán (Đồng)</strong>
+                            <span class="required" aria-required="true"></span>
+                        </label>
+                        <div class="col-md-3">
+                            <input type="text" name="tem_name"
+                                   number-format=""
+                                   data-ng-model="price"
+                                   id="pay_money" style="text-align: right;"
+                                   class="form-control"
+                                   disabled="disabled"
+                            >
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <!-- <div class="form-group col-md-10">
+                    <div class="form-horizontal">
+                        <label class="control-label col-md-4"
+                               style="text-align: right;"><strong>Tổng tiền hàng đã bảo lãnh</strong>
+                            <span class="required" aria-required="true"></span>
+                        </label>
+                        <div class="col-md-3">
+                            <input type="text" name="stdbl"
+                                   data-ng-model="stdbl"
+                                   id="stdbl"
+                                   class="form-control"
+                                   disabled="disabled"
+                            >
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-md-10">
+                    <div class="form-horizontal">
+                        <label class="control-label col-md-4"
+                               style="text-align: right;"><strong>Tổng tiền inquiry</strong>
+                            <span class="required" aria-required="true"></span>
+                        </label>
+                        <div class="col-md-3">
+                            <input type="text" name="total_inquiry"
+                                   data-ng-model="total_inquiry"
+                                   id="total_inquiry"
+                                   class="form-control"
+                                   disabled="disabled"
+                            >
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div> -->
+                <div class="form-group col-md-10">
+                    <div class="form-horizontal">
+                        <label class="control-label col-md-4"
+                               style="text-align: right;"><strong>Công nợ hiện tại (Đồng)</strong>
+                            <span class="required" aria-required="true"></span>
+                        </label>
+                        <div class="col-md-3">
+                            <input type="text" name="credit_name"
+                                   data-ng-model="theOrder.credit_name"
+                                   class="form-control"
+                                   disabled="disabled"
+                            >
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" name="credit_value_cus"
+                                   number-format=""
+                                   data-ng-model="theOrder.credit_value_cus"
+                                   id="credit_value_cus"
+                                   class="form-control" style="text-align: right;"
+                                   disabled="disabled"
+                            >
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="form-group col-md-10">
+                    <div class="form-horizontal">
+                        <label class="control-label col-md-4"
+                               style="text-align: right;"><strong>Hạn mức sản xuất (Đồng)</strong>
+                            <span class="required" aria-required="true"></span>
+                        </label>
+                        <div class="col-md-3">
+                            <input type="text" name="credit_name"
+                                   data-ng-model="theOrder.credit_name"
+                                   id="credit_name"
+                                   class="form-control"
+                                   disabled="disabled"
+                            >
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" name="credit_value"
+                                   number-format=""
+                                   data-ng-model="theOrder.credit_value"
+                                   id="credit_value"
+                                   class="form-control" style="text-align: right;"
+                                   disabled="disabled"
+                            >
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="form-group col-md-10">
+                    <div class="form-horizontal">
+                        <label class="control-label col-md-4"
+                               style="text-align: right;"><strong>Trạng thái đơn hàng</strong>
+                            <span class="required" aria-required="true"></span>
+                        </label>
+                        <div class="col-md-3">
+                            <input type="text" name="tem_name"
+                                   value="Khởi tạo"
+                                   class="form-control"
+                                   style="text-align: center;"
+                                   disabled="disabled"
+                            >
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+
+            </div>
+        </div>
+    </div>
+    <div class="portlet light bordered">
+        <div class="portlet-body">
+
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <div class="btn-group">
+                        <button id="save" class="btn sbold green"
+                                data-ng-click="submit('')"> Lưu lại
+                        </button>
+                        <button id="send" class="btn sbold green" style="margin-left: 10px;"
+                                data-ng-click="submit('next')"> Xem đơn hàng
+                        </button>
+                        <button id="sample_editable_4_new" class="btn sbold red" data-ng-click="cancel()"
+                                style="margin-left: 10px;"> Hủy
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+
+

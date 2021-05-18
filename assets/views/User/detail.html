@@ -1,0 +1,205 @@
+<div class="content content-narrow">
+    <form class="js-validation-material push-10-t">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption font-dark">
+                    <i class="font-dark"></i>
+                    <span class="caption-subject bold uppercase"> Thông tin tài khoản</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="row">
+                    <div class="form-group col-md-8">
+                        <div class=" form-horizontal">
+                            <label class="col-md-4 control-label" style="text-align: right;">Tài khoản</label>
+                            <div class="col-md-8">
+                                <input type="text" name="username"
+                                       data-ng-model="theUser.USERNAME"
+                                       id="username" disabled="disabled"
+                                       class="form-control"
+                                >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-8">
+                        <div class=" form-horizontal">
+                            <label class="col-md-4 control-label" style="text-align: right;">Mật khẩu</label>
+                            <div class="col-md-8">
+                                <input type="password" name="password"
+                                       data-ng-model="theUser.PASSWORD"
+                                       id="password" disabled="disabled"
+                                       class="form-control"
+                                >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-8">
+                        <div class=" form-horizontal">
+                            <label class="col-md-4 control-label" style="text-align: right;">Tên người dùng</label>
+                            <div class="col-md-8">
+                                <input type="text" name="name"
+                                       data-ng-model="theUser.DESCRIPTION"
+                                       id="name" disabled="disabled"
+                                       class="form-control"
+                                >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-8">
+                        <div class=" form-horizontal">
+                            <label class="col-md-4 control-label" style="text-align: right;">Nhóm tài khoản</label>
+                            <div class="col-md-8">
+                                <select id="us_gr"
+                                        class="form-control"
+                                        data-ng-model="theUser.ID_GR"
+                                        data-ng-options="userGroup.ID_GR as userGroup.NAME for userGroup in userGroup"
+                                        disabled="disabled"></select>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-8">
+                        <div class=" form-horizontal">
+                            <label class="col-md-4 control-label" style="text-align: right;">Loại tài khoản</label>
+                            <div class="col-md-8">
+                                <select id="us_type"
+                                        class="form-control"
+                                        data-ng-model="theUser.US_TYPE"
+                                        data-ng-options="userType.shortDes as userType.longDes for userType in userType"
+                                        disabled="disabled"></select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+                <div class="col-md-10" data-ng-if="listUser_u.length !== 0">
+                    <div class="portlet light bordered">
+                        <div class="portlet-title">
+                            <div class="caption font-dark">
+                                <span class="caption-subject bold uppercase"> Danh sách tài khoản cấp dưới</span>
+                            </div>
+                        </div>
+                        <div class="portlet-body">
+                            <div id="sample_1_wrapper" class="dataTables_wrapper no-footer">
+                                <div class="row">
+                                    <div class="table-scrollable">
+                                        <table class="table table-striped table-bordered table-hover order-column dataTable no-footer"
+                                               id="sample_1" role="grid" aria-describedby="sample_1_info">
+                                            <thead>
+                                            <tr role="row">                                              
+                                                <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1"
+                                                    colspan="1" style="width: 25%;"
+                                                    aria-label=" Status : activate to sort column ascending"> Tài khoản
+                                                </th>
+                                                <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1"
+                                                    colspan="1" 
+                                                    aria-label=" Joined : activate to sort column ascending"> Tên người dùng
+                                                </th>
+
+                                                <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1"
+                                                    colspan="1" style="width: 25%;"
+                                                    aria-label=" Joined : activate to sort column ascending"> Loại tài
+                                                    khoản
+                                                </th>
+                                               
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr class="gradeX odd" role="row" 
+                                                data-ng-repeat="user in listUser_u track by $index"
+                                                pagination-id='user'>                                                
+                                                <td class="sorting_1">{{user.USERNAME}}</td>                                                
+                                                <td class="sorting_1">{{user.DESCRIPTION}}</td>
+                                                <td class="sorting_1">{{user.US_TYPE}}</td>
+
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="clearfix"></div>
+                <div class="col-md-10" data-ng-if="listUser_k.length !== 0">
+                    <div class="portlet light bordered">
+                        <div class="portlet-title">
+                            <div class="caption font-dark">
+                                <span class="caption-subject bold uppercase"> Danh sách tài khoản được quản lý</span>
+                            </div>
+                        </div>
+                        <div class="portlet-body">
+                            <div id="sample_1_wrapper2" class="dataTables_wrapper no-footer">
+                                <div class="row">
+                                    <div class="table-scrollable">
+                                        <table class="table table-striped table-bordered table-hover order-column dataTable no-footer"
+                                               id="sample_12" role="grid" aria-describedby="sample_1_info">
+                                            <thead>
+                                            <tr role="row">
+                                                <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1"
+                                                    colspan="1"
+                                                    aria-label=" Email : activate to sort column ascending"> Mã tài
+                                                    khoản
+                                                </th>
+                                                <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1"
+                                                    colspan="1"
+                                                    aria-label=" Status : activate to sort column ascending"> Tên tài
+                                                    khoản
+                                                </th>
+                                                <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1"
+                                                    colspan="1"
+                                                    aria-label=" Joined : activate to sort column ascending"> Loại tài
+                                                    khoản
+                                                </th>
+
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr class="gradeX odd" role="row"
+                                                data-ng-repeat="user in listUser_k track by $index">
+                                                <td class="sorting_1">{{user.ID_USER}}</td>
+                                                <td class="sorting_1">{{user.USERNAME}}</td>
+                                                <td class="sorting_1">{{user.US_TYPE}}</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+
+
+        </div>
+        <div class="portlet light">
+            <div class="portlet-body">
+                <button class="btn btn-sm btn-primary" type="button" ui-sref="User.list">Back
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+<script>
+    jQuery(function ($) {
+        $("body").on('click', '.nav.nav-tabs', function (e) {
+            e.preventDefault();
+            jQuery(this).tab('show');
+        });
+    })
+</script>

@@ -1,0 +1,78 @@
+<script>
+    var start = moment().subtract(7, 'days');
+    var end = moment();
+
+    function cb(start, end) {
+        zstart = start;
+        zend = end;
+        $('#reportrange span').html(start.format('DD/MM/YYYY') + ' - ' + end.format('DD/MM/YYYY'));
+    }
+
+    $('#reportrange').daterangepicker({
+        startDate: start,
+        endDate: end,
+        ranges: range
+    }, cb);
+</script>
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption font-dark "><span
+                class="caption-subject bold uppercase"> THỐNG KÊ DANH SÁCH ĐƠN HÀNG</span>
+        </div>
+    </div>
+    <div class="portlet-body">
+        <div class="row">
+            <div class="form-group col-md-6">
+                <div class="form-horizontal">
+                    <label class="control-label col-md-3" style="text-align: left">Ngày tạo
+                        <span class="required" aria-required="true"></span>
+                    </label>
+                    <div class="col-md-8" id="reportrange"
+                         style="background: #fff; cursor: pointer; padding: 10px 30px; border: 1px solid #ccc; float: left;">
+                        <i class="fa fa-calendar"></i>&nbsp;
+                        <span></span> <i class="fa fa-caret-down"></i>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="form-group col-md-6">
+                <div class="form-horizontal">
+                    <label class="control-label col-md-3" style="text-align: left">Trạng thái
+                        <span class="required" aria-required="true"></span>
+                    </label>
+                    <div class="col-md-8" style="padding-left: 0 !important;padding-right: 0 !important;">
+                        <select class="form-control" name="options2" id="option3"
+                                tabindex="-1" aria-hidden="true" aria-required="true"
+                                aria-invalid="false"
+                                aria-describedby="options2-error"
+                                data-ng-model="status">
+                            <option value="S" selected>Thành công</option>
+                            <option value="A" selected>Đã duyệt</option>
+                            <option value="B" selected>Đang bảo lãnh</option>
+                            <option value="P" selected>Đã lưu</option>
+                            <option value="F" selected>Không thành công</option>
+                            <option value="R" selected>Đã hủy</option>
+                        </select></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-md-6">
+                <div class="col-md-3"></div>
+                <div class="btn-group">
+                    <button id="sample_editable_3_new" class="btn sbold green"
+                            data-ng-click="submit(start, end, status)"> Xuất file
+                    </button>
+                    <button id="sample_editable_4_new" class="btn sbold red" data-ng-click="cancel()"
+                            style="margin-left: 10px;"> Hủy
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="clearfix"></div>
+</div>

@@ -1,0 +1,53 @@
+<div class="content content-narrow">
+    <form class="js-validation-material push-10-t">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption font-dark ">
+                    <span class="caption-subject bold uppercase"> Thông tin bảo hành sản phẩm</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="row">
+                    <div class="form-group col-md-10">
+                        <div class=" form-horizontal">
+                            <label class="col-md-4 control-label" style="text-align: right;">Số đơn hàng</label>
+                            <div class="col-md-6">
+                                <input type="text" name="order_number" data-ng-model="guaranteeSearch.orderNumber"
+                                    id="order_number" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-10">
+                        <div class=" form-horizontal">
+                            <label class="col-md-4 control-label" style="text-align: right;">Số serial của sản phẩm
+                                From</label>
+                            <div class="col-md-6">
+                                <input type="text" name="serial_from" data-ng-model="guaranteeSearch.serialFrom"
+                                    id="serial_from" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-10">
+                        <div class=" form-horizontal">
+                            <label class="col-md-4 control-label" style="text-align: right;">To</label>
+                            <div class="col-md-6">
+                                <input type="text" name="serial_to" data-ng-model="guaranteeSearch.serialTo"
+                                    id="serial_to" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-10">
+                        <div class=" form-horizontal">
+                            <label class="col-md-4 control-label" style="text-align: right;"></label>
+                            <div class="col-md-6">
+                                <button class="btn btn-success" data-ng-click="submitSearchGuarantee()">Kiểm
+                                    tra</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </form>
+</div>
